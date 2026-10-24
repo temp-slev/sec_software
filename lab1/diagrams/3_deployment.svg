@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="1060" viewBox="0 0 1900 1060" font-family="Helvetica, Arial, sans-serif">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<defs>
+<marker id="m1971c2" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1971c2"/></marker>
+<marker id="m2f9e44" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e44"/></marker>
+<marker id="me8590c" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e8590c"/></marker>
+<marker id="m9c36b5" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9c36b5"/></marker>
+<marker id="m868e96" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#868e96"/></marker>
+<marker id="m1e1e1e" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1e1e1e"/></marker>
+</defs>
+<rect x="30" y="30" width="270" height="310" rx="8" fill="#f8f9fa" stroke="#868e96" stroke-width="2"/>
+<text x="165.0" y="55.0" text-anchor="middle" font-size="17" fill="#1e1e1e">Клиентские устройства</text>
+<rect x="60" y="90" width="210" height="80" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="2"/>
+<text x="165.0" y="125.6" text-anchor="middle" font-size="16" fill="#1e1e1e">Браузер</text>
+<text x="165.0" y="145.6" text-anchor="middle" font-size="16" fill="#1e1e1e">(Web Client, React)</text>
+<rect x="60" y="220" width="210" height="80" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="2"/>
+<text x="165.0" y="255.6" text-anchor="middle" font-size="16" fill="#1e1e1e">Мобильное устройство</text>
+<text x="165.0" y="275.6" text-anchor="middle" font-size="16" fill="#1e1e1e">(React Native)</text>
+<ellipse cx="415.0" cy="115.0" rx="75.0" ry="35.0" fill="transparent" stroke="#868e96" stroke-width="2"/>
+<text x="415.0" y="120.6" text-anchor="middle" font-size="16" fill="#1e1e1e">Интернет</text>
+<rect x="540" y="30" width="940" height="990" rx="8" fill="transparent" stroke="#1971c2" stroke-width="3"/>
+<text x="1010.0" y="56.0" text-anchor="middle" font-size="18" fill="#1e1e1e">AWS (публичное облако) — кластер Kubernetes (k8s)</text>
+<rect x="850" y="80" width="320" height="70" rx="8" fill="#d0ebff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="1010.0" y="110.6" text-anchor="middle" font-size="16" fill="#1e1e1e">Load Balancer</text>
+<text x="1010.0" y="130.6" text-anchor="middle" font-size="16" fill="#1e1e1e">(Ingress, HTTPS 443)</text>
+<rect x="570" y="230" width="440" height="260" rx="8" fill="#f8f9fa" stroke="#1971c2" stroke-width="2" stroke-dasharray="9 6"/>
+<text x="790.0" y="254.0" text-anchor="middle" font-size="16" fill="#1e1e1e">Availability Zone 1</text>
+<rect x="1010" y="230" width="440" height="260" rx="8" fill="#f8f9fa" stroke="#1971c2" stroke-width="2" stroke-dasharray="9 6"/>
+<text x="1230.0" y="254.0" text-anchor="middle" font-size="16" fill="#1e1e1e">Availability Zone 2</text>
+<rect x="590" y="290" width="190" height="70" rx="8" fill="#d0ebff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="685.0" y="320.6" text-anchor="middle" font-size="16" fill="#1e1e1e">Pod Auth Service</text>
+<text x="685.0" y="340.6" text-anchor="middle" font-size="16" fill="#1e1e1e">(реплика 1)</text>
+<rect x="800" y="290" width="190" height="70" rx="8" fill="#d0ebff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="895.0" y="320.6" text-anchor="middle" font-size="16" fill="#1e1e1e">Pod Course Service</text>
+<text x="895.0" y="340.6" text-anchor="middle" font-size="16" fill="#1e1e1e">(реплика 1)</text>
+<rect x="1030" y="290" width="190" height="70" rx="8" fill="#d0ebff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="1125.0" y="320.6" text-anchor="middle" font-size="16" fill="#1e1e1e">Pod Auth Service</text>
+<text x="1125.0" y="340.6" text-anchor="middle" font-size="16" fill="#1e1e1e">(реплика 2)</text>
+<rect x="1240" y="290" width="190" height="70" rx="8" fill="#d0ebff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="1335.0" y="320.6" text-anchor="middle" font-size="16" fill="#1e1e1e">Pod Course Service</text>
+<text x="1335.0" y="340.6" text-anchor="middle" font-size="16" fill="#1e1e1e">(реплика 2)</text>
+<rect x="590" y="390" width="190" height="70" rx="8" fill="#d0ebff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="685.0" y="430.6" text-anchor="middle" font-size="16" fill="#1e1e1e">Pod Payment Service</text>
+<rect x="1240" y="390" width="190" height="70" rx="8" fill="#d0ebff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="1335.0" y="420.6" text-anchor="middle" font-size="16" fill="#1e1e1e">Pod Notification</text>
+<text x="1335.0" y="440.6" text-anchor="middle" font-size="16" fill="#1e1e1e">Service</text>
+<rect x="580" y="640" width="580" height="170" rx="8" fill="#f8f9fa" stroke="#1971c2" stroke-width="2" stroke-dasharray="9 6"/>
+<text x="870.0" y="664.0" text-anchor="middle" font-size="16" fill="#1e1e1e">Слой данных (StatefulSet)</text>
+<rect x="600" y="700" width="250" height="80" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="2"/>
+<text x="725.0" y="735.6" text-anchor="middle" font-size="16" fill="#1e1e1e">PostgreSQL</text>
+<text x="725.0" y="755.6" text-anchor="middle" font-size="16" fill="#1e1e1e">(порт 5432)</text>
+<rect x="880" y="700" width="250" height="80" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="2"/>
+<text x="1005.0" y="735.6" text-anchor="middle" font-size="16" fill="#1e1e1e">Redis</text>
+<text x="1005.0" y="755.6" text-anchor="middle" font-size="16" fill="#1e1e1e">(порт 6379)</text>
+<rect x="1220" y="640" width="230" height="80" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="2"/>
+<text x="1335.0" y="685.6" text-anchor="middle" font-size="16" fill="#1e1e1e">VPN Gateway</text>
+<text x="560" y="974.0" font-size="14" fill="#868e96" text-anchor="start">Kubernetes (k8s): поды развёрнуты Deployment-ами, базы данных — StatefulSet</text>
+<rect x="1590" y="300" width="280" height="330" rx="8" fill="#f8f9fa" stroke="#e8590c" stroke-width="2"/>
+<text x="1730.0" y="324.0" text-anchor="middle" font-size="16" fill="#1e1e1e">Локальный дата-центр (On-Premise)</text>
+<rect x="1620" y="370" width="220" height="70" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="2"/>
+<text x="1730.0" y="410.6" text-anchor="middle" font-size="16" fill="#1e1e1e">Firewall</text>
+<rect x="1620" y="500" width="220" height="80" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="2"/>
+<text x="1730.0" y="535.6" text-anchor="middle" font-size="16" fill="#1e1e1e">SFTP-сервер</text>
+<text x="1730.0" y="555.6" text-anchor="middle" font-size="16" fill="#1e1e1e">(архив лекций)</text>
+<line x1="270.0" y1="130.0" x2="340.0" y2="105.0" stroke="#1971c2" stroke-width="2" marker-end="url(#m1971c2)"/>
+<line x1="270.0" y1="260.0" x2="380.0" y2="150.0" stroke="#1971c2" stroke-width="2" marker-end="url(#m1971c2)"/>
+<line x1="490.0" y1="115.0" x2="850.0" y2="115.0" stroke="#1971c2" stroke-width="2" marker-end="url(#m1971c2)"/>
+<text x="670.0" y="105.0" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">HTTPS (443)</text>
+<text x="670.0" y="105.0" text-anchor="middle" font-size="13" fill="#1971c2" font-weight="bold">HTTPS (443)</text>
+<line x1="950.0" y1="150.0" x2="790.0" y2="230.0" stroke="#1971c2" stroke-width="2" marker-end="url(#m1971c2)"/>
+<text x="810.0" y="184.0" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">REST/HTTP :8080</text>
+<text x="810.0" y="184.0" text-anchor="middle" font-size="13" fill="#1971c2" font-weight="bold">REST/HTTP :8080</text>
+<line x1="1070.0" y1="150.0" x2="1230.0" y2="230.0" stroke="#1971c2" stroke-width="2" marker-end="url(#m1971c2)"/>
+<text x="1210.0" y="184.0" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">REST/HTTP :8080</text>
+<text x="1210.0" y="184.0" text-anchor="middle" font-size="13" fill="#1971c2" font-weight="bold">REST/HTTP :8080</text>
+<line x1="750.0" y1="490.0" x2="750.0" y2="640.0" stroke="#1971c2" stroke-width="2" marker-end="url(#m1971c2)"/>
+<text x="685.0" y="557.0" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">TCP 5432, 6379</text>
+<text x="685.0" y="557.0" text-anchor="middle" font-size="13" fill="#1971c2" font-weight="bold">TCP 5432, 6379</text>
+<line x1="1150.0" y1="490.0" x2="950.0" y2="640.0" stroke="#1971c2" stroke-width="2" marker-end="url(#m1971c2)"/>
+<text x="1125.0" y="545.0" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">TCP 5432, 6379</text>
+<text x="1125.0" y="545.0" text-anchor="middle" font-size="13" fill="#1971c2" font-weight="bold">TCP 5432, 6379</text>
+<line x1="1335.0" y1="490.0" x2="1335.0" y2="640.0" stroke="#e8590c" stroke-width="2" marker-end="url(#me8590c)"/>
+<text x="1385.0" y="557.0" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">SFTP (22)</text>
+<text x="1385.0" y="557.0" text-anchor="middle" font-size="13" fill="#e8590c" font-weight="bold">SFTP (22)</text>
+<line x1="1450.0" y1="660.0" x2="1620.0" y2="420.0" stroke="#e8590c" stroke-width="2" stroke-dasharray="8 6" marker-end="url(#me8590c)" marker-start="url(#me8590c)"/>
+<text x="1515.0" y="510.0" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">VPN-туннель</text>
+<text x="1515.0" y="510.0" text-anchor="middle" font-size="13" fill="#e8590c" font-weight="bold">VPN-туннель</text>
+<text x="1515.0" y="525.6" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">SFTP, порт 22</text>
+<text x="1515.0" y="525.6" text-anchor="middle" font-size="13" fill="#e8590c" font-weight="bold">SFTP, порт 22</text>
+<line x1="1730.0" y1="440.0" x2="1730.0" y2="500.0" stroke="#e8590c" stroke-width="2" marker-end="url(#me8590c)"/>
+<text x="1775.0" y="462.0" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">SFTP :22</text>
+<text x="1775.0" y="462.0" text-anchor="middle" font-size="13" fill="#e8590c" font-weight="bold">SFTP :22</text>
+<rect x="40" y="740" width="330" height="170" rx="8" fill="transparent" stroke="#868e96" stroke-width="2"/>
+<text x="205.0" y="763.0" text-anchor="middle" font-size="15" fill="#1e1e1e">Легенда</text>
+<line x1="55.0" y1="792.0" x2="110.0" y2="792.0" stroke="#1971c2" stroke-width="2" marker-end="url(#m1971c2)"/>
+<text x="122" y="796.0" font-size="14" fill="#1e1e1e" text-anchor="start">Облако AWS / внутренний трафик</text>
+<line x1="55.0" y1="820.0" x2="110.0" y2="820.0" stroke="#e8590c" stroke-width="2" marker-end="url(#me8590c)"/>
+<text x="122" y="824.0" font-size="14" fill="#1e1e1e" text-anchor="start">Гибридный канал (VPN)</text>
+<rect x="55" y="838" width="55" height="20" rx="8" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="122" y="852.0" font-size="14" fill="#1e1e1e" text-anchor="start">Контейнеры (поды)</text>
+<rect x="55" y="866" width="55" height="20" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1"/>
+<text x="122" y="880.0" font-size="14" fill="#1e1e1e" text-anchor="start">Хранилища данных</text>
+<rect x="55" y="894" width="55" height="20" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1"/>
+<text x="122" y="908.0" font-size="14" fill="#1e1e1e" text-anchor="start">Локальная инфраструктура</text>
+</svg>

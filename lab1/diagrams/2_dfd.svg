@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1760" height="1000" viewBox="0 0 1760 1000" font-family="Helvetica, Arial, sans-serif">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<defs>
+<marker id="m1971c2" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1971c2"/></marker>
+<marker id="m2f9e44" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e44"/></marker>
+<marker id="me8590c" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e8590c"/></marker>
+<marker id="m9c36b5" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9c36b5"/></marker>
+<marker id="m868e96" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#868e96"/></marker>
+<marker id="m1e1e1e" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1e1e1e"/></marker>
+</defs>
+<rect x="30" y="420" width="200" height="70" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="2"/>
+<text x="130.0" y="450.6" text-anchor="middle" font-size="16" fill="#1e1e1e">Веб-клиент</text>
+<text x="130.0" y="470.6" text-anchor="middle" font-size="16" fill="#1e1e1e">(React)</text>
+<rect x="380" y="420" width="200" height="70" rx="8" fill="#d0ebff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="480.0" y="460.6" text-anchor="middle" font-size="16" fill="#1e1e1e">API Gateway</text>
+<rect x="380" y="90" width="200" height="70" rx="8" fill="#e5dbff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="480.0" y="120.6" text-anchor="middle" font-size="16" fill="#1e1e1e">Service Registry</text>
+<text x="480.0" y="140.6" text-anchor="middle" font-size="16" fill="#1e1e1e">(Eureka / Consul)</text>
+<rect x="760" y="90" width="200" height="70" rx="8" fill="#d0ebff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="860.0" y="130.6" text-anchor="middle" font-size="16" fill="#1e1e1e">Auth Service</text>
+<rect x="760" y="330" width="200" height="70" rx="8" fill="#d0ebff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="860.0" y="370.6" text-anchor="middle" font-size="16" fill="#1e1e1e">Course Service</text>
+<rect x="760" y="520" width="200" height="70" rx="8" fill="#d0ebff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="860.0" y="560.6" text-anchor="middle" font-size="16" fill="#1e1e1e">Payment Service</text>
+<rect x="760" y="740" width="200" height="70" rx="8" fill="#d0ebff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="860.0" y="780.6" text-anchor="middle" font-size="16" fill="#1e1e1e">Notification Service</text>
+<rect x="1150" y="90" width="200" height="70" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="2"/>
+<text x="1250.0" y="130.6" text-anchor="middle" font-size="16" fill="#1e1e1e">Redis Cache</text>
+<rect x="1150" y="330" width="200" height="70" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="2"/>
+<text x="1250.0" y="370.6" text-anchor="middle" font-size="16" fill="#1e1e1e">PostgreSQL DB</text>
+<rect x="1150" y="520" width="200" height="70" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2"/>
+<text x="1250.0" y="550.6" text-anchor="middle" font-size="16" fill="#1e1e1e">Stripe API</text>
+<text x="1250.0" y="570.6" text-anchor="middle" font-size="16" fill="#1e1e1e">(внешняя система)</text>
+<rect x="1150" y="740" width="200" height="70" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2"/>
+<text x="1250.0" y="770.6" text-anchor="middle" font-size="16" fill="#1e1e1e">SendGrid API</text>
+<text x="1250.0" y="790.6" text-anchor="middle" font-size="16" fill="#1e1e1e">(внешняя система)</text>
+<rect x="380" y="740" width="200" height="70" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="2"/>
+<text x="480.0" y="770.6" text-anchor="middle" font-size="16" fill="#1e1e1e">SFTP Server</text>
+<text x="480.0" y="790.6" text-anchor="middle" font-size="16" fill="#1e1e1e">(локальный ДЦ)</text>
+<line x1="230.0" y1="469.1" x2="380.0" y2="469.1" stroke="#1971c2" stroke-width="2" marker-end="url(#m1971c2)"/>
+<text x="305.0" y="483.1" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">HTTP запросы (REST)</text>
+<text x="305.0" y="483.1" text-anchor="middle" font-size="13" fill="#1971c2" font-weight="bold">HTTP запросы (REST)</text>
+<line x1="380.0" y1="440.9" x2="230.0" y2="440.9" stroke="#1971c2" stroke-width="2" marker-end="url(#m1971c2)"/>
+<text x="305.0" y="426.9" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">Возвращает ответ (JSON)</text>
+<text x="305.0" y="426.9" text-anchor="middle" font-size="13" fill="#1971c2" font-weight="bold">Возвращает ответ (JSON)</text>
+<line x1="529.3" y1="428.3" x2="828.6" y2="168.3" stroke="#1971c2" stroke-width="2" marker-end="url(#m1971c2)"/>
+<text x="731.8" y="308.9" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">Запрашивает аутентификацию</text>
+<text x="731.8" y="308.9" text-anchor="middle" font-size="13" fill="#1971c2" font-weight="bold">Запрашивает аутентификацию</text>
+<line x1="810.7" y1="151.7" x2="511.4" y2="411.7" stroke="#1971c2" stroke-width="2" marker-end="url(#m1971c2)"/>
+<text x="628.4" y="271.1" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">Возвращает JWT</text>
+<text x="628.4" y="271.1" text-anchor="middle" font-size="13" fill="#1971c2" font-weight="bold">Возвращает JWT</text>
+<line x1="960.0" y1="138.8" x2="1150.0" y2="138.8" stroke="#1971c2" stroke-width="2" marker-end="url(#m1971c2)"/>
+<text x="1055.0" y="152.8" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">Сохраняет сессию</text>
+<text x="1055.0" y="152.8" text-anchor="middle" font-size="13" fill="#1971c2" font-weight="bold">Сохраняет сессию</text>
+<line x1="1150.0" y1="111.2" x2="960.0" y2="111.2" stroke="#1971c2" stroke-width="2" marker-end="url(#m1971c2)"/>
+<text x="1055.0" y="97.2" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">Проверяет сессию</text>
+<text x="1055.0" y="97.2" text-anchor="middle" font-size="13" fill="#1971c2" font-weight="bold">Проверяет сессию</text>
+<line x1="582.5" y1="445.0" x2="762.5" y2="402.4" stroke="#1971c2" stroke-width="2" marker-end="url(#m1971c2)"/>
+<text x="680.1" y="437.3" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">Запрашивает материалы</text>
+<text x="680.1" y="437.3" text-anchor="middle" font-size="13" fill="#1971c2" font-weight="bold">Запрашивает материалы</text>
+<line x1="757.5" y1="375.0" x2="577.5" y2="417.6" stroke="#1971c2" stroke-width="2" marker-end="url(#m1971c2)"/>
+<text x="660.9" y="382.7" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">Возвращает уроки</text>
+<text x="660.9" y="382.7" text-anchor="middle" font-size="13" fill="#1971c2" font-weight="bold">Возвращает уроки</text>
+<line x1="960.0" y1="378.8" x2="1150.0" y2="378.8" stroke="#1971c2" stroke-width="2" marker-end="url(#m1971c2)"/>
+<text x="1055.0" y="392.8" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">Читает и пишет курсы (CRUD)</text>
+<text x="1055.0" y="392.8" text-anchor="middle" font-size="13" fill="#1971c2" font-weight="bold">Читает и пишет курсы (CRUD)</text>
+<line x1="1150.0" y1="351.2" x2="960.0" y2="351.2" stroke="#1971c2" stroke-width="2" marker-end="url(#m1971c2)"/>
+<text x="1055.0" y="337.2" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">Возвращает данные</text>
+<text x="1055.0" y="337.2" text-anchor="middle" font-size="13" fill="#1971c2" font-weight="bold">Возвращает данные</text>
+<line x1="577.2" y1="495.0" x2="757.2" y2="542.3" stroke="#1971c2" stroke-width="2" marker-end="url(#m1971c2)"/>
+<text x="657.3" y="532.2" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">Передаёт запрос на оплату</text>
+<text x="657.3" y="532.2" text-anchor="middle" font-size="13" fill="#1971c2" font-weight="bold">Передаёт запрос на оплату</text>
+<line x1="762.8" y1="515.0" x2="582.8" y2="467.7" stroke="#1971c2" stroke-width="2" marker-end="url(#m1971c2)"/>
+<text x="682.4" y="477.8" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">Возвращает статус оплаты</text>
+<text x="682.4" y="477.8" text-anchor="middle" font-size="13" fill="#1971c2" font-weight="bold">Возвращает статус оплаты</text>
+<line x1="960.0" y1="568.8" x2="1150.0" y2="568.8" stroke="#2f9e44" stroke-width="2" marker-end="url(#m2f9e44)"/>
+<text x="1055.0" y="582.8" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">Отправляет платёжное требование</text>
+<text x="1055.0" y="582.8" text-anchor="middle" font-size="13" fill="#2f9e44" font-weight="bold">Отправляет платёжное требование</text>
+<line x1="1150.0" y1="541.2" x2="960.0" y2="541.2" stroke="#2f9e44" stroke-width="2" marker-end="url(#m2f9e44)"/>
+<text x="1055.0" y="527.2" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">Подтверждает платёж</text>
+<text x="1055.0" y="527.2" text-anchor="middle" font-size="13" fill="#2f9e44" font-weight="bold">Подтверждает платёж</text>
+<line x1="860.0" y1="590.0" x2="860.0" y2="740.0" stroke="#1971c2" stroke-width="2" marker-end="url(#m1971c2)"/>
+<text x="860.0" y="655.0" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">Отправляет команду</text>
+<text x="860.0" y="655.0" text-anchor="middle" font-size="13" fill="#1971c2" font-weight="bold">Отправляет команду</text>
+<text x="860.0" y="670.6" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">на уведомление</text>
+<text x="860.0" y="670.6" text-anchor="middle" font-size="13" fill="#1971c2" font-weight="bold">на уведомление</text>
+<line x1="960.0" y1="788.8" x2="1150.0" y2="788.8" stroke="#2f9e44" stroke-width="2" marker-end="url(#m2f9e44)"/>
+<text x="1055.0" y="802.8" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">Отправляет письмо</text>
+<text x="1055.0" y="802.8" text-anchor="middle" font-size="13" fill="#2f9e44" font-weight="bold">Отправляет письмо</text>
+<line x1="1150.0" y1="761.2" x2="960.0" y2="761.2" stroke="#2f9e44" stroke-width="2" marker-end="url(#m2f9e44)"/>
+<text x="1055.0" y="747.2" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">Возвращает статус</text>
+<text x="1055.0" y="747.2" text-anchor="middle" font-size="13" fill="#2f9e44" font-weight="bold">Возвращает статус</text>
+<line x1="467.8" y1="490.0" x2="467.8" y2="740.0" stroke="#e8590c" stroke-width="2" marker-end="url(#me8590c)"/>
+<text x="352.4" y="615.0" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">Запрашивает архивные файлы</text>
+<text x="352.4" y="615.0" text-anchor="middle" font-size="13" fill="#e8590c" font-weight="bold">Запрашивает архивные файлы</text>
+<line x1="492.2" y1="740.0" x2="492.2" y2="490.0" stroke="#e8590c" stroke-width="2" marker-end="url(#me8590c)"/>
+<text x="560.8" y="615.0" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">Передаёт файлы</text>
+<text x="560.8" y="615.0" text-anchor="middle" font-size="13" fill="#e8590c" font-weight="bold">Передаёт файлы</text>
+<line x1="760.0" y1="125.0" x2="580.0" y2="125.0" stroke="#9c36b5" stroke-width="2" marker-end="url(#m9c36b5)"/>
+<text x="670.0" y="115.0" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">Регистрирует адрес</text>
+<text x="670.0" y="115.0" text-anchor="middle" font-size="13" fill="#9c36b5" font-weight="bold">Регистрирует адрес</text>
+<line x1="804.6" y1="330.0" x2="535.4" y2="160.0" stroke="#9c36b5" stroke-width="2" marker-end="url(#m9c36b5)"/>
+<text x="670.0" y="235.0" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">Регистрирует адрес</text>
+<text x="670.0" y="235.0" text-anchor="middle" font-size="13" fill="#9c36b5" font-weight="bold">Регистрирует адрес</text>
+<line x1="492.2" y1="420.0" x2="492.2" y2="160.0" stroke="#9c36b5" stroke-width="2" marker-end="url(#m9c36b5)"/>
+<text x="576.4" y="290.0" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">Запрашивает адреса</text>
+<text x="576.4" y="290.0" text-anchor="middle" font-size="13" fill="#9c36b5" font-weight="bold">Запрашивает адреса</text>
+<line x1="467.8" y1="160.0" x2="467.8" y2="420.0" stroke="#9c36b5" stroke-width="2" marker-end="url(#m9c36b5)"/>
+<text x="387.5" y="290.0" text-anchor="middle" font-size="13" fill="#ffffff" stroke="#ffffff" stroke-width="5" font-weight="bold">Возвращает адреса</text>
+<text x="387.5" y="290.0" text-anchor="middle" font-size="13" fill="#9c36b5" font-weight="bold">Возвращает адреса</text>
+<rect x="1400" y="840" width="330" height="142" rx="8" fill="transparent" stroke="#868e96" stroke-width="2"/>
+<text x="1565.0" y="863.0" text-anchor="middle" font-size="15" fill="#1e1e1e">Легенда</text>
+<line x1="1415.0" y1="892.0" x2="1470.0" y2="892.0" stroke="#1971c2" stroke-width="2" marker-end="url(#m1971c2)"/>
+<text x="1482" y="896.0" font-size="14" fill="#1e1e1e" text-anchor="start">Внутренний трафик</text>
+<line x1="1415.0" y1="920.0" x2="1470.0" y2="920.0" stroke="#2f9e44" stroke-width="2" marker-end="url(#m2f9e44)"/>
+<text x="1482" y="924.0" font-size="14" fill="#1e1e1e" text-anchor="start">Внешние системы</text>
+<line x1="1415.0" y1="948.0" x2="1470.0" y2="948.0" stroke="#e8590c" stroke-width="2" marker-end="url(#me8590c)"/>
+<text x="1482" y="952.0" font-size="14" fill="#1e1e1e" text-anchor="start">Гибридный доступ (VPN)</text>
+<line x1="1415.0" y1="976.0" x2="1470.0" y2="976.0" stroke="#9c36b5" stroke-width="2" marker-end="url(#m9c36b5)"/>
+<text x="1482" y="980.0" font-size="14" fill="#1e1e1e" text-anchor="start">Service Discovery</text>
+</svg>
