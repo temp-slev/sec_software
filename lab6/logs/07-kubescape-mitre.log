@@ -1,0 +1,31 @@
+$ kubescape scan framework mitre
+│  Medium  │ Audit logs enabled                                 │         1        │       1       │         0%        │
+│    Low   │ Validate admission controller (validating)         │         1        │       1       │         0%        │
+│    Low   │ PSP enabled                                        │         1        │       1       │         0%        │
+├──────────┼────────────────────────────────────────────────────┼──────────────────┼───────────────┼───────────────────┤
+│          │                  Resource Summary                  │        81        │      139      │       59.99%      │
+╰──────────┴────────────────────────────────────────────────────┴──────────────────┴───────────────┴───────────────────╯
+
+🚨 * missing: hostdata.kubescape.cloud/v1beta0/KubeletInfo
+
+────────────────────────────────────────────────────────────────────────────────
+Scan Coverage Warning
+────────────────────────────────────────────────────────────────────────────────
+
+Scan coverage score: 83% (24/26 controls evaluated)
+
+The following resource types could not be collected:
+  • container.googleapis.com/v1/ClusterDescribe: failed to get cloud provider, cluster: docker-desktop
+  • eks.amazonaws.com/v1/ClusterDescribe: failed to get cloud provider, cluster: docker-desktop
+  • hostdata.kubescape.cloud/v1beta0/KubeletInfo: This control is scanned exclusively by the Kubescape operator, not the Kubescape CLI. Install the Kubescape operator:
+     https://kubescape.io/docs/install-operator/.
+  • management.azure.com/v1/ClusterDescribe: failed to get cloud provider, cluster: docker-desktop
+
+The following controls were NOT evaluated:
+  • C-0069 (missing: hostdata.kubescape.cloud/v1beta0/KubeletInfo)
+  • C-0070 (missing: hostdata.kubescape.cloud/v1beta0/KubeletInfo)
+
+To fix this, ensure the scanning identity has list/get permissions on the missing resource types.
+{"level":"info","ts":"2026-10-24T14:41:33+03:00","msg":"Scan results saved","filename":"reports/kubescape-mitre-report.json"}
+
+Overall compliance-score (100- Excellent, 0- All failed): 60

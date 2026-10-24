@@ -1,0 +1,68 @@
+$ kubectl get pods -A -o wide
+NAMESPACE     NAME                                                     READY   STATUS    RESTARTS   AGE   IP             NODE             NOMINATED NODE   READINESS GATES
+default       fastapi-app-76676568b6-8nz4h                             1/1     Running   0          50m   10.1.0.13      docker-desktop   <none>           <none>
+default       fastapi-app-76676568b6-nbw54                             1/1     Running   0          50m   10.1.0.14      docker-desktop   <none>           <none>
+kube-system   coredns-589f44dc88-nq7zg                                 1/1     Running   0          55m   10.1.0.3       docker-desktop   <none>           <none>
+kube-system   coredns-589f44dc88-rp9qn                                 1/1     Running   0          55m   10.1.0.2       docker-desktop   <none>           <none>
+kube-system   etcd-docker-desktop                                      1/1     Running   0          55m   10.254.254.3   docker-desktop   <none>           <none>
+kube-system   kube-apiserver-docker-desktop                            1/1     Running   0          55m   10.254.254.3   docker-desktop   <none>           <none>
+kube-system   kube-controller-manager-docker-desktop                   1/1     Running   0          55m   10.254.254.3   docker-desktop   <none>           <none>
+kube-system   kube-proxy-vd7cc                                         1/1     Running   0          55m   10.254.254.3   docker-desktop   <none>           <none>
+kube-system   kube-scheduler-docker-desktop                            1/1     Running   0          55m   10.254.254.3   docker-desktop   <none>           <none>
+kube-system   metrics-server-55c6b8755f-s2smb                          1/1     Running   0          34m   10.1.0.17      docker-desktop   <none>           <none>
+kube-system   storage-provisioner                                      1/1     Running   0          55m   10.1.0.4       docker-desktop   <none>           <none>
+kube-system   vpnkit-controller                                        1/1     Running   0          55m   10.1.0.5       docker-desktop   <none>           <none>
+logging       loki-0                                                   1/1     Running   0          27m   10.1.0.22      docker-desktop   <none>           <none>
+logging       loki-grafana-696cdf6976-bhtzr                            2/2     Running   0          50m   10.1.0.11      docker-desktop   <none>           <none>
+logging       loki-promtail-96wt9                                      1/1     Running   0          33m   10.1.0.18      docker-desktop   <none>           <none>
+monitoring    alert-webhook-774db8cf77-9zwlh                           1/1     Running   0          33m   10.1.0.19      docker-desktop   <none>           <none>
+monitoring    alertmanager-prometheus-stack-kube-prom-alertmanager-0   2/2     Running   0          50m   10.1.0.15      docker-desktop   <none>           <none>
+monitoring    prometheus-prometheus-stack-kube-prom-prometheus-0       2/2     Running   0          50m   10.1.0.16      docker-desktop   <none>           <none>
+monitoring    prometheus-stack-kube-prom-operator-db8597556-rznct      1/1     Running   0          50m   10.1.0.7       docker-desktop   <none>           <none>
+monitoring    prometheus-stack-kube-state-metrics-cd466fc5b-z2z67      1/1     Running   0          50m   10.1.0.8       docker-desktop   <none>           <none>
+
+$ kubectl get svc -A
+NAMESPACE     NAME                                      TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)                        AGE
+default       fastapi-app                               LoadBalancer   10.101.23.49     localhost     8090:31306/TCP                 50m
+default       kubernetes                                ClusterIP      10.96.0.1        <none>        443/TCP                        55m
+kube-system   kube-dns                                  ClusterIP      10.96.0.10       <none>        53/UDP,53/TCP,9153/TCP         55m
+kube-system   metrics-server                            ClusterIP      10.98.135.90     <none>        443/TCP                        34m
+kube-system   prometheus-stack-kube-prom-coredns        ClusterIP      None             <none>        9153/TCP                       50m
+kube-system   prometheus-stack-kube-prom-kubelet        ClusterIP      None             <none>        10250/TCP,4194/TCP,10255/TCP   50m
+logging       loki                                      ClusterIP      10.99.8.163      <none>        3100/TCP                       50m
+logging       loki-grafana                              ClusterIP      10.109.190.249   <none>        80/TCP                         50m
+logging       loki-headless                             ClusterIP      None             <none>        3100/TCP                       50m
+logging       loki-memberlist                           ClusterIP      None             <none>        7946/TCP                       50m
+monitoring    alert-webhook                             ClusterIP      10.104.234.189   <none>        8080/TCP                       33m
+monitoring    alertmanager-operated                     ClusterIP      None             <none>        9093/TCP,9094/TCP,9094/UDP     50m
+monitoring    prometheus-operated                       ClusterIP      None             <none>        9090/TCP                       50m
+monitoring    prometheus-stack-kube-prom-alertmanager   ClusterIP      10.109.240.161   <none>        9093/TCP,8080/TCP              50m
+monitoring    prometheus-stack-kube-prom-operator       ClusterIP      10.105.239.187   <none>        443/TCP                        50m
+monitoring    prometheus-stack-kube-prom-prometheus     ClusterIP      10.109.251.38    <none>        9090/TCP,8080/TCP              50m
+monitoring    prometheus-stack-kube-state-metrics       ClusterIP      10.96.80.65      <none>        8080/TCP                       50m
+
+$ kubectl get secrets -A
+NAMESPACE     NAME                                                                                  TYPE                                  DATA   AGE
+kube-system   bootstrap-token-abcdef                                                                bootstrap.kubernetes.io/token         6      55m
+kube-system   sh.helm.release.v1.metrics-server.v1                                                  helm.sh/release.v1                    1      34m
+logging       loki                                                                                  Opaque                                1      50m
+logging       loki-grafana                                                                          Opaque                                3      50m
+logging       loki-promtail                                                                         Opaque                                1      50m
+logging       sh.helm.release.v1.loki.v1                                                            helm.sh/release.v1                    1      50m
+logging       sh.helm.release.v1.loki.v2                                                            helm.sh/release.v1                    1      33m
+logging       sh.helm.release.v1.loki.v3                                                            helm.sh/release.v1                    1      27m
+monitoring    alertmanager-prometheus-stack-kube-prom-alertmanager                                  Opaque                                1      50m
+monitoring    alertmanager-prometheus-stack-kube-prom-alertmanager-cluster-tls-config               Opaque                                1      50m
+monitoring    alertmanager-prometheus-stack-kube-prom-alertmanager-generated                        Opaque                                1      50m
+monitoring    alertmanager-prometheus-stack-kube-prom-alertmanager-tls-assets-0                     Opaque                                0      50m
+monitoring    alertmanager-prometheus-stack-kube-prom-alertmanager-web-config                       Opaque                                1      50m
+monitoring    prometheus-prometheus-stack-kube-prom-prometheus                                      Opaque                                1      50m
+monitoring    prometheus-prometheus-stack-kube-prom-prometheus-thanos-prometheus-http-client-file   Opaque                                1      50m
+monitoring    prometheus-prometheus-stack-kube-prom-prometheus-tls-assets-0                         Opaque                                2      50m
+monitoring    prometheus-prometheus-stack-kube-prom-prometheus-web-config                           Opaque                                1      50m
+monitoring    prometheus-stack-kube-prom-admission                                                  Opaque                                3      50m
+monitoring    prometheus-stack-kube-prom-prometheus-token                                           kubernetes.io/service-account-token   3      50m
+monitoring    sh.helm.release.v1.prometheus-stack.v1                                                helm.sh/release.v1                    1      51m
+monitoring    sh.helm.release.v1.prometheus-stack.v2                                                helm.sh/release.v1                    1      33m
+monitoring    sh.helm.release.v1.prometheus-stack.v3                                                helm.sh/release.v1                    1      27m
+monitoring    sh.helm.release.v1.prometheus-stack.v4                                                helm.sh/release.v1                    1      23m

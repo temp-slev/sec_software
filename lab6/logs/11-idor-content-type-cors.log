@@ -1,0 +1,25 @@
+# --- Тест IDOR на User Service (практика 3) ---
+Пользователь attacker, прошедший только signup/login, пытается изменить чужой ресурс id=2 (Bob):
+{"name":"Hacked","email":"hacked@example.com","age":1,"id":2,"created_at":"2026-10-24T14:42:26.204422","is_active":true}
+[HTTP 200]
+# Вывод: любой аутентифицированный пользователь может менять любой id => IDOR, нет проверки владельца ресурса
+
+# --- Тест Content-Type switching ---
+{"detail":[{"type":"model_attributes_type","loc":["body"],"msg":"Input should be a valid dictionary or object to extract fields from","input":"name=form&email=form@example.com"}]}
+[HTTP 422]
+{"detail":[{"type":"model_attributes_type","loc":["body"],"msg":"Input should be a valid dictionary or object to extract fields from","input":"--------------------------7mgop2gA147M2PVG3rKkMG\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\nmultipart\r\n--------------------------7mgop2gA147M2PVG3rKkMG\r\nContent-Disposition: form-data; name=\"email\"\r\n\r\nmultipart@example.com\r\n--------------------------7mgop2gA147M2PVG3rKkMG--\r\n"}]}
+[HTTP 422]
+# Вывод: Pydantic в FastAPI по умолчанию принимает только JSON-тело, form/multipart отклоняются422 — переключение формата не обходит валидацию
+
+# --- Тест CORS ---
+HTTP/1.1 200 OK
+# Вывод: заголовок Access-Control-Allow-Origin не возвращается => CORS не сконфигурирован на отражение произвольного Origin (на эндпоинте по умолчанию FastAPI не добавляет CORSMiddleware)
+# CORS на JWT-сервисе (Лаба 4), где настроен ALLOWED_ORIGINS
+HTTP/1.1 200 OK
+# Проверка допустимого источника (http://localhost:3000, задан по умолчанию)
+HTTP/1.1 200 OK
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Request-Private-Network
+access-control-allow-methods: GET, POST
+access-control-max-age: 600
+access-control-allow-headers: Accept, Accept-Language, Authorization, Content-Language, Content-Type
+access-control-allow-origin: http://localhost:3000

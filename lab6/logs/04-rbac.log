@@ -1,0 +1,157 @@
+$ kubectl auth can-i --list
+Resources                                       Non-Resource URLs   Resource Names   Verbs
+*.*                                             []                  []               [*]
+                                                [*]                 []               [*]
+selfsubjectreviews.authentication.k8s.io        []                  []               [create]
+selfsubjectaccessreviews.authorization.k8s.io   []                  []               [create]
+selfsubjectrulesreviews.authorization.k8s.io    []                  []               [create]
+                                                [/api/*]            []               [get]
+                                                [/api]              []               [get]
+                                                [/apis/*]           []               [get]
+                                                [/apis]             []               [get]
+                                                [/healthz]          []               [get]
+                                                [/healthz]          []               [get]
+                                                [/livez]            []               [get]
+                                                [/livez]            []               [get]
+                                                [/openapi/*]        []               [get]
+                                                [/openapi]          []               [get]
+                                                [/readyz]           []               [get]
+                                                [/readyz]           []               [get]
+                                                [/version/]         []               [get]
+                                                [/version/]         []               [get]
+                                                [/version]          []               [get]
+                                                [/version]          []               [get]
+
+$ kubectl auth can-i create pods --subresource=exec
+yes
+$ kubectl auth can-i get secrets
+yes
+$ kubectl auth can-i create clusterrolebindings
+Warning: resource 'clusterrolebindings' is not namespace scoped in group 'rbac.authorization.k8s.io'
+
+yes
+$ kubectl auth can-i '*' '*'
+yes
+
+$ kubectl get serviceaccounts -A
+NAMESPACE         NAME                                          AGE
+default           default                                       56m
+kube-node-lease   default                                       56m
+kube-public       default                                       56m
+kube-system       attachdetach-controller                       56m
+kube-system       bootstrap-signer                              56m
+kube-system       certificate-controller                        56m
+kube-system       clusterrole-aggregation-controller            56m
+kube-system       coredns                                       56m
+kube-system       cronjob-controller                            56m
+kube-system       daemon-set-controller                         56m
+kube-system       default                                       56m
+kube-system       deployment-controller                         56m
+kube-system       device-taint-eviction-controller              56m
+kube-system       disruption-controller                         56m
+kube-system       endpoint-controller                           56m
+kube-system       endpointslice-controller                      56m
+kube-system       endpointslicemirroring-controller             56m
+kube-system       ephemeral-volume-controller                   56m
+kube-system       expand-controller                             56m
+kube-system       generic-garbage-collector                     56m
+kube-system       horizontal-pod-autoscaler                     56m
+kube-system       job-controller                                56m
+kube-system       kube-proxy                                    56m
+kube-system       legacy-service-account-token-cleaner          56m
+kube-system       metrics-server                                36m
+kube-system       namespace-controller                          56m
+kube-system       node-controller                               56m
+kube-system       persistent-volume-binder                      56m
+kube-system       pod-garbage-collector                         56m
+kube-system       pv-protection-controller                      56m
+kube-system       pvc-protection-controller                     56m
+kube-system       replicaset-controller                         56m
+kube-system       replication-controller                        56m
+kube-system       resource-claim-controller                     56m
+kube-system       resourcequota-controller                      56m
+kube-system       root-ca-cert-publisher                        56m
+kube-system       service-account-controller                    56m
+kube-system       service-cidrs-controller                      56m
+kube-system       statefulset-controller                        56m
+kube-system       storage-provisioner                           56m
+kube-system       token-cleaner                                 56m
+kube-system       ttl-after-finished-controller                 56m
+kube-system       ttl-controller                                56m
+kube-system       validatingadmissionpolicy-status-controller   56m
+kube-system       volumeattributesclass-protection-controller   56m
+kube-system       vpnkit-controller                             56m
+logging           default                                       52m
+logging           loki                                          51m
+logging           loki-grafana                                  51m
+logging           loki-promtail                                 51m
+monitoring        default                                       52m
+monitoring        prometheus-stack-kube-prom-alertmanager       52m
+monitoring        prometheus-stack-kube-prom-operator           52m
+monitoring        prometheus-stack-kube-prom-prometheus         52m
+monitoring        prometheus-stack-kube-state-metrics           52m
+
+$ сервисные аккаунты с токенами (kubernetes.io/service-account-token)
+{
+  "name": "prometheus-stack-kube-prom-prometheus-token",
+  "namespace": "monitoring"
+}
+
+$ automountServiceAccountToken у default ServiceAccount в default
+ (пусто = true по умолчанию)
+
+$ ClusterRoleBindings для anonymous/unauthenticated
+{
+  "name": "system:public-info-viewer",
+  "roleRef": "system:public-info-viewer",
+  "subjects": [
+    {
+      "apiGroup": "rbac.authorization.k8s.io",
+      "kind": "Group",
+      "name": "system:authenticated"
+    },
+    {
+      "apiGroup": "rbac.authorization.k8s.io",
+      "kind": "Group",
+      "name": "system:unauthenticated"
+    }
+  ]
+}
+{
+  "name": "system:public-info-viewer",
+  "roleRef": "system:public-info-viewer",
+  "subjects": [
+    {
+      "apiGroup": "rbac.authorization.k8s.io",
+      "kind": "Group",
+      "name": "system:authenticated"
+    },
+    {
+      "apiGroup": "rbac.authorization.k8s.io",
+      "kind": "Group",
+      "name": "system:unauthenticated"
+    }
+  ]
+}
+
+$ ClusterRoleBindings на cluster-admin (кто имеет полный доступ)
+{
+  "name": "cluster-admin",
+  "subjects": [
+    {
+      "apiGroup": "rbac.authorization.k8s.io",
+      "kind": "Group",
+      "name": "system:masters"
+    }
+  ]
+}
+{
+  "name": "kubeadm:cluster-admins",
+  "subjects": [
+    {
+      "apiGroup": "rbac.authorization.k8s.io",
+      "kind": "Group",
+      "name": "kubeadm:cluster-admins"
+    }
+  ]
+}

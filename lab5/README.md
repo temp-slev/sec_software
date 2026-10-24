@@ -49,6 +49,14 @@ kubectl port-forward -n monitoring svc/prometheus-stack-kube-prom-prometheus 909
 Grafana → Dashboards → Import → загрузить `grafana/incident-dashboard.json`
 (источники данных выбираются по именам `Loki` и `Prometheus`).
 
+## Усиление безопасности (по итогам Лабы 6)
+
+Пентест в `lab6/` обнаружил, что у `fastapi-app` не было `securityContext`. Добавлены
+`runAsNonRoot`, `seccompProfile: RuntimeDefault`, `allowPrivilegeEscalation: false`,
+`capabilities.drop: [ALL]`, `readOnlyRootFilesystem: true` и
+`automountServiceAccountToken: false` (приложение не обращается к Kubernetes API).
+Подробности — `lab6/FINDINGS.md`.
+
 ## Что отличается от текста задания
 
 - Вместо Minikube используется Kubernetes из Docker Desktop; сервис доступен через

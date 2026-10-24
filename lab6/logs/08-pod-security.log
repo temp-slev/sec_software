@@ -1,0 +1,29 @@
+$ kubectl get pod -n default -l app=fastapi-app -o jsonpath для securityContext
+null
+{}
+
+# то же для системных подов мониторинга (для сравнения)
+{
+  "name": "alertmanager",
+  "securityContext": {
+    "allowPrivilegeEscalation": false,
+    "capabilities": {
+      "drop": [
+        "ALL"
+      ]
+    },
+    "readOnlyRootFilesystem": true
+  }
+}
+{
+  "name": "config-reloader",
+  "securityContext": {
+    "allowPrivilegeEscalation": false,
+    "capabilities": {
+      "drop": [
+        "ALL"
+      ]
+    },
+    "readOnlyRootFilesystem": true
+  }
+}

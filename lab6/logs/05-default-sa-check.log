@@ -1,0 +1,39 @@
+$ kubectl get secrets -n default
+No resources found in default namespace.
+
+# В современных версиях Kubernetes (1.24+) токен для default SA не создаётся автоматически;
+# секрет-токен можно получить только явным запросом через TokenRequest API:
+$ kubectl create token default -n default
+eyJhbGciOiJSUzI1NiIsImtpZCI6InVVNlRkOUl4TkpIZmJOT3JqcUhtc1l2
+
+$ kubectl --token=<токен default SA> auth can-i create pods
+yes
+$ kubectl --token=<токен default SA> auth can-i list secrets -A
+yes
+$ kubectl --token=<токен default SA> auth can-i --list
+Resources                                       Non-Resource URLs   Resource Names   Verbs
+*.*                                             []                  []               [*]
+                                                [*]                 []               [*]
+selfsubjectreviews.authentication.k8s.io        []                  []               [create]
+selfsubjectaccessreviews.authorization.k8s.io   []                  []               [create]
+selfsubjectrulesreviews.authorization.k8s.io    []                  []               [create]
+                                                [/api/*]            []               [get]
+                                                [/api]              []               [get]
+                                                [/apis/*]           []               [get]
+                                                [/apis]             []               [get]
+                                                [/healthz]          []               [get]
+                                                [/healthz]          []               [get]
+                                                [/livez]            []               [get]
+                                                [/livez]            []               [get]
+                                                [/openapi/*]        []               [get]
+                                                [/openapi]          []               [get]
+                                                [/readyz]           []               [get]
+                                                [/readyz]           []               [get]
+                                                [/version/]         []               [get]
+                                                [/version/]         []               [get]
+                                                [/version]          []               [get]
+                                                [/version]          []               [get]
+
+# Имитация через --as (этап 3, п.5)
+$ kubectl --as=system:serviceaccount:default:default get pods
+Error from server (Forbidden): pods is forbidden: User "system:serviceaccount:default:default" cannot list resource "pods" in API group "" in the namespace "default"

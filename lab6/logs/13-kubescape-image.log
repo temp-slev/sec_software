@@ -1,0 +1,41 @@
+$ kubescape scan image fastapi-logging:latest
+│   High   │ CVE-2026-78410  │ mount         │ 2.41.5-0+deb13u1                  │ wont-fix │ fastapi-logging:latest │
+│   High   │ CVE-2026-78410  │ util-linux    │ 2.41.5-0+deb13u1                  │ wont-fix │ fastapi-logging:latest │
+│   High   │ CVE-2026-82560  │ perl-base     │ 5.40.1-6+deb13u1                  │ wont-fix │ fastapi-logging:latest │
+│   High   │ CVE-2026-85091  │ zlib1g        │ 1:1.3.dfsg+really1.3.1-1+b1       │          │ fastapi-logging:latest │
+│   High   │ CVE-2026-9538   │ perl-base     │ 5.40.1-6+deb13u1                  │ wont-fix │ fastapi-logging:latest │
+│   High   │ CVE-2026-95619  │ gcc-14-base   │ 14.2.0-19                         │ wont-fix │ fastapi-logging:latest │
+│   High   │ CVE-2026-95619  │ libgcc-s1     │ 14.2.0-19                         │ wont-fix │ fastapi-logging:latest │
+│   High   │ CVE-2026-95619  │ libstdc++6    │ 14.2.0-19                         │ wont-fix │ fastapi-logging:latest │
+╰──────────┴─────────────────┴───────────────┴───────────────────────────────────┴──────────┴────────────────────────╯
+
+Vulnerability DB built: 2026-10-23 (1 days ago)
+
+172 vulnerabilities found
+─────────────────────────
+
+Image: fastapi-logging:latest
+
+* 0 Critical 
+* 55 High 
+* 59 Medium 
+* 58 Other 
+
+
+Components with most vulnerabilities
+────────────────────────────────────
+
+* libc-bin (2.41-12+deb13u4) - 2 High, 9 Medium, 3 Low, 7 Negligible
+* libc6 (2.41-12+deb13u4) - 2 High, 9 Medium, 3 Low, 7 Negligible
+* bsdutils (1:2.41.5-0+deb13u1) - 4 High, 1 Medium, 1 Negligible
+* libblkid1 (2.41.5-0+deb13u1) - 4 High, 1 Medium, 1 Negligible
+* liblastlog2-2 (2.41.5-0+deb13u1) - 4 High, 1 Medium, 1 Negligible
+
+
+What now?
+─────────
+
+* Run with '--verbose'/'-v' flag for detailed vulnerabilities view
+* Install Kubescape in your cluster for continuous monitoring and a full vulnerability report: https://kubescape.io/docs/install-operator/
+
+{"level":"info","ts":"2026-10-24T14:43:58+03:00","msg":"Scan results saved","filename":"reports/kubescape-image-fastapi.json"}

@@ -1,0 +1,6 @@
+$ kube-hunter --remote localhost --report json
+2026-10-24 14:39:16,965 INFO kube_hunter.modules.report.collector Started hunting
+2026-10-24 14:39:16,968 INFO kube_hunter.modules.report.collector Discovering Open Kubernetes Services
+2026-10-24 14:39:16,999 INFO kube_hunter.modules.report.collector Found open service "API Server" at localhost:6443
+2026-10-24 14:39:17,006 INFO kube_hunter.modules.report.collector Found vulnerability "K8s Version Disclosure" in localhost:6443
+{"nodes": [{"type": "Node/Master", "location": "localhost"}], "services": [{"service": "API Server", "location": "localhost:6443"}], "vulnerabilities": [{"location": "localhost:6443", "vid": "KHV002", "category": "Initial Access // Exposed sensitive interfaces", "severity": "high", "vulnerability": "K8s Version Disclosure", "description": "The kubernetes version could be obtained from the /version endpoint", "evidence": "v1.36.1", "avd_reference": "https://avd.aquasec.com/kube-hunter/khv002/", "hunter": "Api Version Hunter"}]}

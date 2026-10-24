@@ -1,0 +1,41 @@
+$ kubescape scan framework nsa
+│  Medium  │ Prevent containers from allowing command execution │         3        │       87      │        97%        │
+│  Medium  │ Non-root containers                                │        13        │       19      │        32%        │
+│  Medium  │ Allow privilege escalation                         │        12        │       19      │        37%        │
+│  Medium  │ Ingress and Egress blocked                         │        19        │       19      │         0%        │
+│  Medium  │ Automatic mapping of service account               │        19        │       74      │        74%        │
+│  Medium  │ Administrative Roles                               │         3        │       87      │        97%        │
+│  Medium  │ Container hostPort                                 │         4        │       19      │        79%        │
+│  Medium  │ Cluster internal networking                        │         6        │       6       │         0%        │
+│  Medium  │ Linux hardening                                    │        10        │       19      │        47%        │
+│  Medium  │ Secret/etcd encryption enabled                     │         1        │       1       │         0%        │
+│  Medium  │ Audit logs enabled                                 │         1        │       1       │         0%        │
+│    Low   │ Immutable container filesystem                     │        11        │       19      │        42%        │
+│    Low   │ PSP enabled                                        │         1        │       1       │         0%        │
+├──────────┼────────────────────────────────────────────────────┼──────────────────┼───────────────┼───────────────────┤
+│          │                  Resource Summary                  │        29        │      187      │       53.10%      │
+╰──────────┴────────────────────────────────────────────────────┴──────────────────┴───────────────┴───────────────────╯
+
+🚨 * missing: hostdata.kubescape.cloud/v1beta0/KubeletInfo
+
+────────────────────────────────────────────────────────────────────────────────
+Scan Coverage Warning
+────────────────────────────────────────────────────────────────────────────────
+
+Scan coverage score: 83% (24/26 controls evaluated)
+
+The following resource types could not be collected:
+  • container.googleapis.com/v1/ClusterDescribe: failed to get cloud provider, cluster: docker-desktop
+  • eks.amazonaws.com/v1/ClusterDescribe: failed to get cloud provider, cluster: docker-desktop
+  • hostdata.kubescape.cloud/v1beta0/KubeletInfo: This control is scanned exclusively by the Kubescape operator, not the Kubescape CLI. Install the Kubescape operator:
+     https://kubescape.io/docs/install-operator/.
+  • management.azure.com/v1/ClusterDescribe: failed to get cloud provider, cluster: docker-desktop
+
+The following controls were NOT evaluated:
+  • C-0069 (missing: hostdata.kubescape.cloud/v1beta0/KubeletInfo)
+  • C-0070 (missing: hostdata.kubescape.cloud/v1beta0/KubeletInfo)
+
+To fix this, ensure the scanning identity has list/get permissions on the missing resource types.
+{"level":"info","ts":"2026-10-24T14:41:14+03:00","msg":"Scan results saved","filename":"reports/kubescape-nsa-report.json"}
+
+Overall compliance-score (100- Excellent, 0- All failed): 53

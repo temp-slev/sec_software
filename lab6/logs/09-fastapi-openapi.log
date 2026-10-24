@@ -1,0 +1,19 @@
+$ curl -s http://localhost:8030/openapi.json | jq ".paths | keys"
+[
+  "/",
+  "/logout",
+  "/password",
+  "/protected",
+  "/protected/admin",
+  "/public-info",
+  "/refresh",
+  "/register",
+  "/token",
+  "/token/custom",
+  "/token/revoke-all"
+]
+
+$ curl -s http://localhost:8030/docs  (доступность Swagger)
+[HTTP 200]
+$ curl -s http://localhost:8030/redoc
+[HTTP 200]

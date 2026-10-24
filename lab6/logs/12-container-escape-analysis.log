@@ -1,0 +1,61 @@
+# --- Этап 5: анализ возможности побега из контейнера (без запуска инструментов эксплуатации) ---
+$ securityContext пода fastapi-app (повтор из этапа 2)
+null
+
+$ hostPID / hostNetwork / hostIPC у пода fastapi-app
+{
+  "hostPID": null,
+  "hostNetwork": null,
+  "hostIPC": null
+}
+
+$ смонтирован ли /var/run/docker.sock
+[
+  {
+    "name": "kube-api-access-gnscj",
+    "projected": {
+      "defaultMode": 420,
+      "sources": [
+        {
+          "serviceAccountToken": {
+            "expirationSeconds": 3607,
+            "path": "token"
+          }
+        },
+        {
+          "configMap": {
+            "items": [
+              {
+                "key": "ca.crt",
+                "path": "ca.crt"
+              }
+            ],
+            "name": "kube-root-ca.crt"
+          }
+        },
+        {
+          "downwardAPI": {
+            "items": [
+              {
+                "fieldRef": {
+                  "apiVersion": "v1",
+                  "fieldPath": "metadata.namespace"
+                },
+                "path": "namespace"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]
+
+$ проверка изнутри контейнера (без привилегий): whoami, capabilities, docker.sock
+uid=10001(appuser) gid=999(appuser) groups=999(appuser)
+ls: cannot access '/var/run/docker.sock': No such file or directory
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	00000000a80425fb
+CapAmb:	0000000000000000

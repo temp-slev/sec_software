@@ -1,0 +1,17 @@
+# --- Тест 1: JWT, проверка алгоритма и подписи ---
+Выданный токен (без изменений, валиден): 
+{"message":"Hello, pentester! This is protected information","user_data":{"username":"pentester","email":"p@example.com","role":"user","created_at":"2026-10-24T11:42:09.181993+00:00"}}
+[HTTP 200]
+
+# Декодирование без проверки подписи (как при атаке):
+header: {'alg': 'HS256', 'typ': 'JWT'}
+payload: {'sub': 'pentester', 'ver': 0, 'auth_time': 1792842129, 'exp': 1792843029, 'type': 'access', 'jti': 'b944e39f9e75409fb5db399eac6fa254'}
+
+# Атака alg=none: подделываем заголовок, убираем подпись
+forged token: eyJhbGciOiAibm9uZSIsICJ0eXAiOiAiSldUIn0.eyJzdWIiOiAidGVzdHVzZXIiLCAidmVyIjogMCwgInR5cGUiOiAiYWNjZXNzIiwgImV4cCI6IDk5OTk5OTk5OTl9.
+{"detail":"Could not validate credentials"}
+[HTTP 401]
+
+# Серверная проверка: явно ли указан список алгоритмов при jwt.decode?
+131:        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+156:        payload = jwt.decode(refresh_token, SECRET_KEY, algorithms=[ALGORITHM])

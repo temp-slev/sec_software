@@ -1,0 +1,102 @@
+$ nmap -sV -p 443,6443,8443,2379,10250,10255 localhost
+Starting Nmap 7.991 ( https://nmap.org ) at 2026-10-24 14:38 +0300
+Warning: Hostname localhost resolves to 2 IPs. Using 127.0.0.1.
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.000046s latency).
+Other addresses for localhost (not scanned): ::1
+
+PORT      STATE  SERVICE     VERSION
+443/tcp   closed https
+2379/tcp  closed etcd-client
+6443/tcp  open   ssl/http    Golang net/http server
+8443/tcp  closed https-alt
+10250/tcp closed unknown
+10255/tcp closed unknown
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port6443-TCP:V=7.991%T=SSL%I=7%D=10/24%Time=6ADC98C9%P=arm-apple-darwin
+SF:27.0.0%r(GenericLines,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent
+SF:-Type:\x20text/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n4
+SF:00\x20Bad\x20Request")%r(GetRequest,22F,"HTTP/1\.0\x20403\x20Forbidden\
+SF:r\nAudit-Id:\x204abd5376-cacf-403f-9a43-cbdf832dde83\r\nCache-Control:\
+SF:x20no-cache,\x20private\r\nContent-Type:\x20application/json\r\nX-Conte
+SF:nt-Type-Options:\x20nosniff\r\nX-Kubernetes-Pf-Flowschema-Uid:\x20e06da
+SF:c41-f553-4c5e-90be-96fa3674f779\r\nX-Kubernetes-Pf-Prioritylevel-Uid:\x
+SF:2014326b5b-ccfd-481f-a4d3-84fac4ff9bdf\r\nDate:\x20Sat,\x2024\x20Oct\x2
+SF:02026\x2011:38:49\x20GMT\r\nContent-Length:\x20185\r\n\r\n{\"kind\":\"S
+SF:tatus\",\"apiVersion\":\"v1\",\"metadata\":{},\"status\":\"Failure\",\"
+SF:message\":\"forbidden:\x20User\x20\\\"system:anonymous\\\"\x20cannot\x2
+SF:0get\x20path\x20\\\"/\\\"\",\"reason\":\"Forbidden\",\"details\":{},\"c
+SF:ode\":403}\n")%r(HTTPOptions,233,"HTTP/1\.0\x20403\x20Forbidden\r\nAudi
+SF:t-Id:\x20789cdbcf-9917-4ccc-bfae-e6d79ad4ea12\r\nCache-Control:\x20no-c
+SF:ache,\x20private\r\nContent-Type:\x20application/json\r\nX-Content-Type
+SF:-Options:\x20nosniff\r\nX-Kubernetes-Pf-Flowschema-Uid:\x20e06dac41-f55
+SF:3-4c5e-90be-96fa3674f779\r\nX-Kubernetes-Pf-Prioritylevel-Uid:\x2014326
+SF:b5b-ccfd-481f-a4d3-84fac4ff9bdf\r\nDate:\x20Sat,\x2024\x20Oct\x202026\x
+SF:2011:38:49\x20GMT\r\nContent-Length:\x20189\r\n\r\n{\"kind\":\"Status\"
+SF:,\"apiVersion\":\"v1\",\"metadata\":{},\"status\":\"Failure\",\"message
+SF:\":\"forbidden:\x20User\x20\\\"system:anonymous\\\"\x20cannot\x20option
+SF:s\x20path\x20\\\"/\\\"\",\"reason\":\"Forbidden\",\"details\":{},\"code
+SF:\":403}\n")%r(RTSPRequest,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nCon
+SF:tent-Type:\x20text/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\
+SF:r\n400\x20Bad\x20Request")%r(Help,67,"HTTP/1\.1\x20400\x20Bad\x20Reques
+SF:t\r\nContent-Type:\x20text/plain;\x20charset=utf-8\r\nConnection:\x20cl
+SF:ose\r\n\r\n400\x20Bad\x20Request")%r(SSLSessionReq,67,"HTTP/1\.1\x20400
+SF:\x20Bad\x20Request\r\nContent-Type:\x20text/plain;\x20charset=utf-8\r\n
+SF:Connection:\x20close\r\n\r\n400\x20Bad\x20Request");
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 32.48 seconds
+
+$ curl -k https://localhost:6443/api
+{
+  "kind": "Status",
+  "apiVersion": "v1",
+  "metadata": {},
+  "status": "Failure",
+  "message": "forbidden: User \"system:anonymous\" cannot get path \"/api\"",
+  "reason": "Forbidden",
+  "details": {},
+  "code": 403
+}
+[HTTP 403]
+
+$ curl -k https://localhost:6443/version
+{
+  "major": "1",
+  "minor": "36",
+  "emulationMajor": "1",
+  "emulationMinor": "36",
+  "minCompatibilityMajor": "1",
+  "minCompatibilityMinor": "35",
+  "gitVersion": "v1.36.1",
+  "gitCommit": "756939600b9a7180fc2df6550a4585b638875e67",
+  "gitTreeState": "clean",
+  "buildDate": "2026-05-12T09:51:34Z",
+  "goVersion": "go1.26.2",
+  "compiler": "gc",
+  "platform": "linux/arm64"
+}
+[HTTP 200]
+
+$ curl -k https://localhost:6443/api/v1/namespaces  (проверка анонимного доступа)
+{
+  "kind": "Status",
+  "apiVersion": "v1",
+  "metadata": {},
+  "status": "Failure",
+  "message": "namespaces is forbidden: User \"system:anonymous\" cannot list resource \"namespaces\" in API group \"\" at the cluster scope",
+  "reason": "Forbidden",
+  "details": {
+    "kind": "namespaces"
+  },
+  "code": 403
+}
+[HTTP 403]
+
+$ curl -k https://localhost:10250/pods  (kubelet, защищённый порт)
+
+[HTTP 000]
+
+$ curl http://localhost:10255/pods  (read-only kubelet, обычно отключён)
+
+[HTTP 000]
