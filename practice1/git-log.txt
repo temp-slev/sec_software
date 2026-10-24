@@ -1,0 +1,22 @@
+*   4bda6f8 2026-10-24 Merge branch 'feature/config'
+|\  
+| * 596e663 2026-10-24 chore: add config file
+|/  
+*   0d3fdbd 2026-10-24 merge: resolve conflict in README
+|\  
+| * 3485a42 2026-10-24 docs: update title
+* | cf76d6f 2026-10-24 docs: fix version
+|/  
+* e4d4e8d 2026-10-24 feat: add personalized greeting function
+* c60bf98 2026-10-24 feat: initial project structure added
+*   4bda6f8 Merge branch 'feature/config'
+|\  
+| * 596e663 chore: add config file
+|/  
+*   0d3fdbd merge: resolve conflict in README
+|\  
+| * 3485a42 docs: update title
+* | cf76d6f docs: fix version
+|/  
+* e4d4e8d feat: add personalized greeting function
+* c60bf98 feat: initial project structure added
