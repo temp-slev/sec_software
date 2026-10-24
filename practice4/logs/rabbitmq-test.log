@@ -1,0 +1,4 @@
+{"status":"success","message":"Order 1 sent to RabbitMQ"}
+[HTTP 200]
+{"orders":[{"order_id":1,"user_id":100,"product":"Laptop","quantity":1}],"count":1}
+[HTTP 200]

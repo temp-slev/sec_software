@@ -1,0 +1,28 @@
+
+$ POST /orders/ (producer)
+{"status":"success","message":"Order 1 sent to Kafka"}
+[HTTP 200]
+
+$ POST /orders/ (producer)
+{"status":"success","message":"Order 2 sent to Kafka"}
+[HTTP 200]
+
+$ POST /notify/ (producer)
+{"status":"success","message":"Notification sent to user 100"}
+[HTTP 200]
+
+$ POST /errors/ (producer, задание 1)
+{"status":"success","message":"Error from payment-service sent to Kafka"}
+[HTTP 200]
+
+$ GET /orders/ (consumer)
+{"orders":[{"order_id":1,"user_id":100,"product":"Laptop","quantity":1},{"order_id":2,"user_id":101,"product":"Mouse","quantity":3}],"count":2}
+[HTTP 200]
+
+$ GET /notifications/ (consumer)
+{"notifications":[{"user_id":100,"message":"Your order has been processed"}],"count":1}
+[HTTP 200]
+
+$ GET /errors/ (consumer)
+{"errors":[{"source":"payment-service","message":"Card declined","code":402}],"count":1}
+[HTTP 200]

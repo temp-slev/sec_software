@@ -1,0 +1,110 @@
+{
+  "info": {
+    "name": "Kafka services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Send order",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8100/orders/"
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"order_id\": 1,\n  \"user_id\": 100,\n  \"product\": \"Laptop\",\n  \"quantity\": 1\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Send notification",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8100/notify/"
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"user_id\": 100,\n  \"message\": \"Your order has been processed\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Send error",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8100/errors/"
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"source\": \"payment-service\",\n  \"message\": \"Card declined\",\n  \"code\": 402\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Received orders",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8101/orders/"
+        }
+      }
+    },
+    {
+      "name": "Received notifications",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8101/notifications/"
+        }
+      }
+    },
+    {
+      "name": "Received errors",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8101/errors/"
+        }
+      }
+    }
+  ]
+}

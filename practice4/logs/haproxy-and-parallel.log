@@ -1,0 +1,11 @@
+# Продюсер запущен с KAFKA_BOOTSTRAP_SERVERS=localhost:9093 (через HAProxy)
+{"status":"success","message":"Order 3 sent to Kafka"}
+$ docker logs haproxy | tail -5
+Server kafka_backend/kafka1 is DOWN, reason: Layer4 connection problem, info: "ECONNREFUSED returned by OS (Connection refused)", check duration: 0ms. 0 active and 0 backup servers left. 0 sessions active, 0 requeued, 0 remaining in queue.
+backend kafka_backend has no server available!
+[WARNING]  (8) : Server kafka_backend/kafka1 is UP, reason: Layer4 check passed, check duration: 0ms. 1 active and 0 backup servers online. 0 sessions requeued, 0 total in queue.
+Server kafka_backend/kafka1 is UP, reason: Layer4 check passed, check duration: 0ms. 1 active and 0 backup servers online. 0 sessions requeued, 0 total in queue.
+10.254.254.1:53988 [24/Oct/2026:10:33:35.245] kafka_frontend kafka_backend/kafka1 1/0/3 443 -- 1/1/0/0/0 0/0
+
+# Параллельная обработка (задание 2): 5 заказов подряд, задержка 1 с на сообщение
+5 сообщений обработано за 1.090620000 с (последовательно было бы ~5 с)

@@ -1,0 +1,16 @@
+$ kafka-topics --create --topic orders --partitions 3 --replication-factor 1
+Created topic orders.
+$ kafka-topics --create --topic notifications --partitions 1 --replication-factor 1
+Created topic notifications.
+$ kafka-topics --create --topic errors --partitions 1 --replication-factor 1   (задание 1)
+Created topic errors.
+
+$ kafka-topics --list --bootstrap-server localhost:9092
+errors
+notifications
+orders
+
+$ kafka-topics --describe
+Topic: orders	TopicId: B13v7hDxQJiFw6jH9apS2Q	PartitionCount: 3	ReplicationFactor: 1	Configs: 
+Topic: errors	TopicId: EFYt5zjESTac7VZTwhqsVw	PartitionCount: 1	ReplicationFactor: 1	Configs: 
+Topic: notifications	TopicId: Z6uFBGscTDiJXjgylrQrng	PartitionCount: 1	ReplicationFactor: 1	Configs: 

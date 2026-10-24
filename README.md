@@ -6,6 +6,7 @@
 |---|---|
 | `practice1/` | Практика 1. Git: ветвление, слияние, удалённый репозиторий |
 | `practice3/` | Практика 3. FastAPI, Postman, интеграции |
+| `practice4/` | Практика 4. Kafka, HAProxy, RabbitMQ |
 | `practice5/` | Практика 5. Автоматический QA: pytest, black, isort, flake8, pre-commit |
 | `lab1/` | Лаба 1. Архитектура облачных, распределённых, микросервисных и гибридных ИС |
 | `lab2/` | Лаба 2. SAST (Bandit, Safety, Semgrep) |
