@@ -5,6 +5,7 @@
 | Папка | Работа |
 |---|---|
 | `practice1/` | Практика 1. Git: ветвление, слияние, удалённый репозиторий |
+| `practice2/` | Практика 2. GitLab и GitLab Runner на виртуальной машине |
 | `practice3/` | Практика 3. FastAPI, Postman, интеграции |
 | `practice4/` | Практика 4. Kafka, HAProxy, RabbitMQ |
 | `practice5/` | Практика 5. Автоматический QA: pytest, black, isort, flake8, pre-commit |

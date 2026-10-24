@@ -1,0 +1,8 @@
+* 64923e0 2026-10-24 docs: add About this project section
+* 0ce4ae8 2026-10-24 ci: add gitlab-ci pipeline
+* c6ade08 2026-10-24 feat: add hello.txt
+* 7be6fc1 2026-10-24 Initial commit
+* 64923e0 docs: add About this project section
+* 0ce4ae8 ci: add gitlab-ci pipeline
+* c6ade08 feat: add hello.txt
+* 7be6fc1 Initial commit

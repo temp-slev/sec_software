@@ -1,0 +1,99 @@
+$ ssh slev@<ip_вм>
+Distributor ID: Ubuntu / Description: Ubuntu 22.04.5 LTS / Release: 22.04
+
+$ sudo apt update && sudo apt upgrade -y
+[вывод опущен: обновление системы]
+
+$ sudo apt install -y curl openssh-server ca-certificates tzdata perl
+$ sudo apt install -y postfix   (Internet Site)
+
+$ curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash
+Repository configured successfully.
+
+$ sudo EXTERNAL_URL="http://<ip_вм>" apt install -y gitlab-ce
+gitlab Reconfigured!
+GitLab should be available at http://<ip_вм>
+
+$ sudo cat /etc/gitlab/initial_root_password
+Password: <временный пароль, скрыт>
+(пароль root сменён сразу после установки, см. README)
+
+$ curl -s -o /dev/null -w "GitLab HTTP %{http_code}\n" http://<ip_вм>/
+GitLab HTTP 302   (редирект на страницу входа — сервис работает)
+
+--- Этап 4: проект и Runner ---
+$ в веб-интерфейсе: Create blank project -> test-project
+project: root/test-project  http://<ip_вм>/root/test-project
+
+$ Settings -> CI/CD -> Runners -> New project runner (tags: linux)
+runner: my-runner  online: True
+
+$ curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash
+$ sudo apt install gitlab-runner
+$ sudo apt install -y docker.io   (executor docker)
+$ sudo usermod -aG docker gitlab-runner && sudo systemctl enable --now docker
+
+$ sudo gitlab-runner register --url http://<ip_вм> --token <registration-token> \
+    --description my-runner --executor docker --docker-image alpine:latest
+Verifying runner... is valid
+Runner registered successfully.
+Configuration (with the authentication token) was saved in "/etc/gitlab-runner/config.toml"
+
+$ sudo gitlab-runner status
+gitlab-runner: Service is running
+
+--- Этап 5: push в GitLab ---
+$ mkdir test-project && cd test-project && git init
+$ echo "# Test Project" > README.md
+$ git add README.md && git commit -m "Initial commit"
+
+$ ssh-keygen -t ed25519 -C "<email>"
+$ cat ~/.ssh/id_ed25519.pub   (добавлен в Profile -> Preferences -> SSH Keys)
+
+$ git remote add origin git@<ip_вм>:root/test-project.git
+$ git push -u origin main
+ * [new branch]      main -> main
+
+--- Задание 1: hello.txt ---
+$ echo "Hello from GitLab!" > hello.txt
+$ git add hello.txt && git commit -m "feat: add hello.txt"
+$ git push
+   7be6fc1..c6ade08  main -> main
+
+--- Задание 2: пайплайн ---
+$ cat > .gitlab-ci.yml
+stages:
+  - test
+job1:
+  stage: test
+  script:
+    - echo "CI/CD is working!"
+
+$ git add .gitlab-ci.yml && git commit -m "ci: add gitlab-ci pipeline" && git push
+   c6ade08..0ce4ae8  main -> main
+
+Пайплайн запущен автоматически (CI/CD -> Pipelines):
+pipeline status: success   http://<ip_вм>/root/test-project/-/pipelines/1
+
+Фрагмент лога job1 (CI/CD -> Pipelines -> job1):
+$ echo "CI/CD is working!"
+CI/CD is working!
+Job succeeded
+
+--- Задание 3: ветка и Merge Request ---
+$ git checkout -b feature/update-readme
+$ printf "\nРаздел About this project\n" >> README.md
+$ git commit -am "docs: add About this project section"
+$ git push origin feature/update-readme
+remote: To create a merge request for feature/update-readme, visit:
+remote:   http://<ip_вм>/root/test-project/-/merge_requests/new?...
+ * [new branch]      feature/update-readme -> feature/update-readme
+
+Merge Request создан: MR !1 "docs: add About this project section", state: opened
+http://<ip_вм>/root/test-project/-/merge_requests/1
+
+--- История коммитов ---
+* 64923e0 docs: add About this project section
+* 0ce4ae8 ci: add gitlab-ci pipeline
+* c6ade08 feat: add hello.txt
+* 7be6fc1 Initial commit
