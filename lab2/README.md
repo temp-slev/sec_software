@@ -27,8 +27,7 @@ semgrep scan ./app --config p/security-audit --json -o reports/semgrep-report.js
 
 Примечание о Safety: `safety scan` в версии 3.x требует бесплатной регистрации
 (`safety auth`), без неё сканирование не стартует. Поэтому использована команда
-`safety check` (открытая база) и `pip-audit` как независимая проверка. Для
-скриншота отчёта можно один раз выполнить `safety auth` и затем `safety scan`.
+`safety check` (открытая база) и `pip-audit` как независимая проверка.
 
 ## Результаты до исправления (`vulnerable/`)
 
