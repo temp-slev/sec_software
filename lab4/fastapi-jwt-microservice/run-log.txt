@@ -1,0 +1,53 @@
+# uvicorn app.main:app --port 8020 (SECRET_KEY задан в .env)
+
+$ GET /
+{"message":"Welcome to JWT Protected Microservice!","public_info":"This is public information","endpoints":{"public":["/","/public-info","/docs","/openapi.json"],"auth":["/register","/token","/token/custom","/refresh","/
+[HTTP 200]
+
+$ GET /public-info
+{"public_data":{"app_name":"JWT Microservice","version":"1.0.0","status":"operational"},"note":"Full information available only with authentication"}
+[HTTP 200]
+
+$ POST /register
+{"message":"User created successfully","username":"testuser","email":"test@example.com","role":"user"}
+[HTTP 201]
+
+$ POST /token/custom (tokens received)
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlciIsInZlciI6MCwiYXV0aF90aW1lIjoxNzkyODM2MTQ1LCJleHAiOjE3OTI4MzcwNDUsInR5cGUiOiJhY2Nlc3MiLCJqdGkiOiJhNzE1OGIzODU5OTU0OTI1YjI2N2NiNmI1ZmU3ZTA2ZCJ9.U
+[HTTP 200]
+
+$ GET /protected without token
+{"detail":"Not authenticated"}
+[HTTP 401]
+
+$ GET /protected with access token
+{"message":"Hello, testuser! This is protected information","user_data":{"username":"testuser","email":"test@example.com","role":"user","created_at":"2026-10-24T10:02:24.798362+00:00"}}
+[HTTP 200]
+
+$ GET /protected/admin as user
+{"detail":"Insufficient permissions"}
+[HTTP 403]
+
+$ POST /refresh
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlciIsInZlciI6MCwiYXV0aF90aW1lIjoxNzkyODM2MTQ0LCJleHAiOjE3OTI4MzcwNDUsInR5cGUiOiJhY2Nlc3MiLCJqdGkiOiI0MDY5ZDIzODY1ZTY0YmY4OTM3ZmNlMWM4MjJjMTEwMiJ9.b
+[HTTP 200]
+
+$ POST /refresh with the same (already used) token
+{"detail":"Token revoked"}
+[HTTP 401]
+
+$ POST /token/revoke-all
+{"message":"All tokens revoked","token_version":1}
+[HTTP 200]
+
+$ GET /protected after revoke-all
+{"detail":"Could not validate credentials"}
+[HTTP 401]
+
+# audit.log
+2026-10-24 13:02:24,798 INFO registered username=testuser role=user ip=127.0.0.1
+2026-10-24 13:02:24,996 INFO login ok username=testuser ip=127.0.0.1
+2026-10-24 13:02:25,237 INFO login ok username=testuser ip=127.0.0.1
+2026-10-24 13:02:25,263 WARNING forbidden user=testuser required_role=admin
+2026-10-24 13:02:25,271 INFO refresh username=testuser
+2026-10-24 13:02:25,289 INFO revoke-all username=testuser version=1
