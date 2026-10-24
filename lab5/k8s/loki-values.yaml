@@ -1,0 +1,38 @@
+# Loki + Promtail + Grafana (источники данных: Loki и Prometheus)
+loki:
+  enabled: true
+  config:
+    ruler:
+      storage:
+        type: local
+        local:
+          directory: /rules
+      rule_path: /tmp/rules
+      alertmanager_url: http://prometheus-stack-kube-prom-alertmanager.monitoring.svc:9093
+      enable_api: true
+      enable_alertmanager_v2: true
+      ring:
+        kvstore:
+          store: inmemory
+  alerting_groups:
+    - name: application-logs
+      rules:
+        # Задание 1: больше 5 сообщений ERROR за 1 минуту
+        - alert: TooManyErrorLogs
+          expr: sum(count_over_time({app="fastapi-app"} |= "ERROR" [1m])) > 5
+          for: 0m
+          labels:
+            severity: warning
+          annotations:
+            summary: "More than 5 ERROR log lines per minute in fastapi-app"
+promtail:
+  enabled: true
+  config:
+    snippets:
+      # Kubernetes в Docker Desktop пишет логи в формате Docker JSON, а не CRI
+      pipelineStages:
+        - docker: {}
+grafana:
+  enabled: true
+  adminUser: admin
+  adminPassword: prom-operator

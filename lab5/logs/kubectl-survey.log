@@ -1,0 +1,56 @@
+$ kubectl cluster-info
+Kubernetes control plane is running at https://127.0.0.1:6443
+CoreDNS is running at https://127.0.0.1:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+
+$ kubectl get nodes -o wide
+NAME             STATUS   ROLES           AGE   VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE         KERNEL-VERSION            CONTAINER-RUNTIME
+docker-desktop   Ready    control-plane   33m   v1.36.1   10.254.254.3   <none>        Docker Desktop   7.0.12-linuxkit (arm64)   docker://29.7.2
+
+$ kubectl top nodes
+NAME             CPU(cores)   CPU(%)   MEMORY(bytes)   MEMORY(%)   
+docker-desktop   489m         4%       2356Mi          30%         
+
+$ kubectl get pods -o wide
+NAME                           READY   STATUS    RESTARTS   AGE   IP          NODE             NOMINATED NODE   READINESS GATES
+fastapi-app-76676568b6-8nz4h   1/1     Running   0          28m   10.1.0.13   docker-desktop   <none>           <none>
+fastapi-app-76676568b6-nbw54   1/1     Running   0          28m   10.1.0.14   docker-desktop   <none>           <none>
+
+$ kubectl top pods
+NAME                           CPU(cores)   MEMORY(bytes)   
+fastapi-app-76676568b6-8nz4h   3m           37Mi            
+fastapi-app-76676568b6-nbw54   3m           37Mi            
+
+$ kubectl get svc
+NAME          TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+fastapi-app   LoadBalancer   10.101.23.49   localhost     8090:31306/TCP   28m
+kubernetes    ClusterIP      10.96.0.1      <none>        443/TCP          33m
+
+$ kubectl get pods -n logging; kubectl get pods -n monitoring
+NAME                            READY   STATUS    RESTARTS   AGE
+loki-0                          1/1     Running   0          6m10s
+loki-grafana-696cdf6976-bhtzr   2/2     Running   0          28m
+loki-promtail-96wt9             1/1     Running   0          12m
+NAME                                                     READY   STATUS    RESTARTS   AGE
+alert-webhook-774db8cf77-9zwlh                           1/1     Running   0          11m
+alertmanager-prometheus-stack-kube-prom-alertmanager-0   2/2     Running   0          28m
+prometheus-prometheus-stack-kube-prom-prometheus-0       2/2     Running   0          28m
+prometheus-stack-kube-prom-operator-db8597556-rznct      1/1     Running   0          29m
+prometheus-stack-kube-state-metrics-cd466fc5b-z2z67      1/1     Running   0          29m
+
+$ kubectl logs deployment/fastapi-app | grep ERROR | head -3
+Found 2 pods, using pod/fastapi-app-76676568b6-8nz4h
+{"timestamp": "2026-10-24T10:57:19.574515+00:00", "level": "ERROR", "message": "Random failure in /crash", "module": "main", "function": "crash", "line": 94, "reason": "simulated_failure"}
+{"timestamp": "2026-10-24T10:57:19.574734+00:00", "level": "ERROR", "message": "Request completed", "module": "main", "function": "log_requests", "line": 57, "method": "GET", "path": "/crash", "status_code": 500, "duration": 0.0003, "client_ip": "10.254.254.3", "user_agent": "curl/8.7.1"}
+{"timestamp": "2026-10-24T11:04:43.582579+00:00", "level": "ERROR", "message": "Random failure in /crash", "module": "main", "function": "crash", "line": 94, "reason": "simulated_failure"}
+
+$ kubectl get events --all-namespaces --sort-by=.lastTimestamp | tail -8
+monitoring    2m18s       Normal    SuccessfulCreate          job/prometheus-stack-kube-prom-admission-create                    Created pod: prometheus-stack-kube-prom-admission-create-dg74d
+monitoring    2m16s       Normal    Completed                 job/prometheus-stack-kube-prom-admission-create                    Job completed
+monitoring    2m16s       Normal    Scheduled                 pod/prometheus-stack-kube-prom-admission-patch-4xqg7               Successfully assigned monitoring/prometheus-stack-kube-prom-admission-patch-4xqg7 to docker-desktop
+monitoring    2m16s       Normal    SuccessfulCreate          job/prometheus-stack-kube-prom-admission-patch                     Created pod: prometheus-stack-kube-prom-admission-patch-4xqg7
+monitoring    2m15s       Normal    Started                   pod/prometheus-stack-kube-prom-admission-patch-4xqg7               Container started
+monitoring    2m15s       Normal    Pulled                    pod/prometheus-stack-kube-prom-admission-patch-4xqg7               Container image "ghcr.io/jkroepke/kube-webhook-certgen:1.11.0" already present on machine and can be accessed by the pod
+monitoring    2m15s       Normal    Created                   pod/prometheus-stack-kube-prom-admission-patch-4xqg7               Container created
+monitoring    2m13s       Normal    Completed                 job/prometheus-stack-kube-prom-admission-patch                     Job completed

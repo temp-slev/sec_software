@@ -1,0 +1,1 @@
+ALERT firing TooManyErrorLogs warning More than 5 ERROR log lines per minute in fastapi-app

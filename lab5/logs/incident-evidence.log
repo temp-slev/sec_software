@@ -1,0 +1,36 @@
+Инцидент (нагрузка на /cpu и /crash): 11:06:43 .. 11:08:23 UTC
+
+# PromQL: sum by (pod) (rate(container_cpu_usage_seconds_total{pod=~"fastapi-app.*"}[1m]))
+  CPU по подам, ядра [fastapi-app-76676568b6-8nz4h]: до нагрузки 0.002, максимум 0.350
+  CPU по подам, ядра [fastapi-app-76676568b6-nbw54]: до нагрузки 0.002, максимум 0.318
+
+# PromQL: sum by (pod) (container_memory_working_set_bytes{pod=~"fastapi-app.*"}) / 1048576
+  Память по подам, МиБ [fastapi-app-76676568b6-8nz4h]: до нагрузки 36.848, максимум 38.953
+  Память по подам, МиБ [fastapi-app-76676568b6-nbw54]: до нагрузки 36.492, максимум 38.094
+
+# PromQL: sum(rate(http_requests_total[1m]))
+  Все запросы, запросов/с [всего]: до нагрузки 0.356, максимум 14.978
+
+# PromQL: sum(rate(http_requests_total{status=~"5.."}[1m]))
+  Ошибки 5xx, запросов/с [всего]: до нагрузки 0.000, максимум 1.800
+
+# PromQL: histogram_quantile(0.95, sum by (le) (rate(http_request_duration_seconds_bucket[1m])))
+  p95 латентность, с [всего]: до нагрузки 0.095, максимум 0.471
+
+Пик 5xx по Prometheus: 1.80/с в 11:07:58 UTC
+
+# LogQL: количество строк ERROR по подам
+   {'pod': 'fastapi-app-76676568b6-8nz4h'} 192
+   {'pod': 'fastapi-app-76676568b6-nbw54'} 168
+# LogQL: запросы по эндпоинтам
+   {} 1118
+   {'path': '/'} 30
+   {'path': '/cpu'} 834
+   {'path': '/crash'} 611
+   {'path': '/health'} 42
+# LogQL: причины ошибок (поле reason)
+   {'reason': 'simulated_failure'} 180
+# LogQL: медианная длительность запроса /cpu, с
+   0.12535000000000002
+# LogQL: максимальная длительность запроса /cpu, с
+   0.4101

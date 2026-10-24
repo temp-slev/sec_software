@@ -1,0 +1,17 @@
+# Источник данных Prometheus для Grafana (подхватывается sidecar по метке)
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-datasource
+  namespace: logging
+  labels:
+    grafana_datasource: "1"
+data:
+  prometheus-datasource.yaml: |
+    apiVersion: 1
+    datasources:
+      - name: Prometheus
+        type: prometheus
+        access: proxy
+        url: http://prometheus-stack-kube-prom-prometheus.monitoring.svc:9090
+        isDefault: false
