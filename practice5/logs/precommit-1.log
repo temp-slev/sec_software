@@ -1,0 +1,28 @@
+$ pre-commit install
+pre-commit installed at .git/hooks/pre-commit
+
+$ pre-commit run --all-files   (первый запуск, хуки скачиваются)
+[INFO] Initializing environment for https://github.com/pre-commit/pre-commit-hooks.
+[WARNING] repo `https://github.com/pre-commit/pre-commit-hooks` uses deprecated stage names (commit, push) which will be removed in a future version.  Hint: often `pre-commit autoupdate --repo https://github.com/pre-commit/pre-commit-hooks` will fix this.  if it does not -- consider reporting an issue to that repo.
+[INFO] Initializing environment for https://github.com/pycqa/isort.
+[WARNING] repo `https://github.com/pycqa/isort` uses deprecated stage names (commit, merge-commit, push) which will be removed in a future version.  Hint: often `pre-commit autoupdate --repo https://github.com/pycqa/isort` will fix this.  if it does not -- consider reporting an issue to that repo.
+[INFO] Initializing environment for https://github.com/pycqa/flake8.
+[INFO] Installing environment for https://github.com/pre-commit/pre-commit-hooks.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+[INFO] Installing environment for https://github.com/psf/black.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+[INFO] Installing environment for https://github.com/pycqa/isort.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+[INFO] Installing environment for https://github.com/pycqa/flake8.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+fix end of files.........................................................Passed
+check for added large files..............................................Passed
+trim trailing whitespace.................................................Passed
+check json...........................................(no files to check)Skipped
+black....................................................................Passed
+isort (python)...........................................................Passed
+flake8...................................................................Passed

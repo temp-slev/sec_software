@@ -1,0 +1,70 @@
+# Намеренно портим форматирование src/main.py
+
+$ pre-commit run flake8 --all-files
+flake8...................................................................Failed
+- hook id: flake8
+- exit code: 1
+
+src/main.py:4:28: E231 missing whitespace after ','
+src/main.py:5:1: F401 'os' imported but unused
+src/main.py:19:16: E201 whitespace after '('
+src/main.py:20:7: E111 indentation is not a multiple of 4
+src/main.py:20:7: E117 over-indented
+src/main.py:20:40: W291 trailing whitespace
+
+
+$ pre-commit run black --all-files
+- hook id: black
+- files were modified by this hook
+
+reformatted src/main.py
+
+All done! ✨ 🍰 ✨
+1 file reformatted, 3 files left unchanged.
+
+
+$ pre-commit run isort --all-files
+isort (python)...........................................................Failed
+- hook id: isort
+- files were modified by this hook
+
+Fixing /private/tmp/claude-501/-Users-slev-vuz-chertoganov/ae17997e-5f1e-4ca3-8b73-a91ed57ea5c8/scratchpad/qa/qa_demo/src/main.py
+
+
+$ pre-commit run flake8 --all-files   (после black/isort остаётся неисправляемое: unused import os)
+flake8...................................................................Failed
+- hook id: flake8
+- exit code: 1
+
+src/main.py:1:1: F401 'os' imported but unused
+
+
+$ pre-commit run --all-files
+fix end of files.........................................................Passed
+check for added large files..............................................Passed
+trim trailing whitespace.................................................Passed
+check json...............................................................Passed
+black....................................................................Passed
+isort (python)...........................................................Passed
+flake8...................................................................Passed
+
+$ git commit -m "test commit with pre-commit"
+fix end of files.........................................................Passed
+check for added large files..............................................Passed
+trim trailing whitespace.................................................Passed
+check json...............................................................Passed
+black....................................................................Passed
+isort (python)...........................................................Passed
+flake8...................................................................Passed
+[main (корневой коммит) c864217] test commit with pre-commit
+ 10 files changed, 177 insertions(+)
+ create mode 100644 .flake8
+ create mode 100644 .gitignore
+ create mode 100644 .pre-commit-config.yaml
+ create mode 100644 pyproject.toml
+ create mode 100644 requirements.txt
+ create mode 100644 src/__init__.py
+ create mode 100644 src/main.py
+ create mode 100644 tests/__init__.py
+ create mode 100644 tests/sample_item.json
+ create mode 100644 tests/test_main.py

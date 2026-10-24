@@ -1,0 +1,14 @@
+
+tests/test_main.py ..........                                            [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.15.0-final-0 _______________
+
+Name              Stmts   Miss  Cover   Missing
+-----------------------------------------------
+src/__init__.py       0      0   100%
+src/main.py          29      0   100%
+-----------------------------------------------
+TOTAL                29      0   100%
+Coverage HTML written to dir htmlcov
+============================== 10 passed in 0.16s ==============================
