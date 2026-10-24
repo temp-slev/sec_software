@@ -1,0 +1,7 @@
+fastapi==0.65.2
+uvicorn==0.13.4
+starlette==0.14.2
+requests==2.25.1
+PyYAML==5.3.1
+Jinja2==2.11.2
+psutil==5.8.0

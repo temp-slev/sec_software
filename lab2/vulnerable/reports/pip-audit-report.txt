@@ -1,0 +1,25 @@
+WARNING:pip_audit._cli:--no-deps is supported, but users are encouraged to fully hash their pinned dependencies
+WARNING:pip_audit._cli:Consider using a tool like `pip-compile`: https://pip-tools.readthedocs.io/en/latest/#using-hashes
+Found 20 known vulnerabilities in 5 packages
+Name      Version ID              Fix Versions
+--------- ------- --------------- ------------
+fastapi   0.65.2  PYSEC-2024-38   0.109.1
+starlette 0.14.2  PYSEC-2023-48   0.25.0
+starlette 0.14.2  PYSEC-2023-83   0.27.0
+starlette 0.14.2  PYSEC-2026-161  1.0.1
+starlette 0.14.2  PYSEC-2026-249  1.3.1
+starlette 0.14.2  PYSEC-2026-248  1.3.0
+starlette 0.14.2  PYSEC-2026-1943 0.40.0
+starlette 0.14.2  PYSEC-2026-1941 0.47.2
+starlette 0.14.2  PYSEC-2026-2281 1.1.0
+starlette 0.14.2  PYSEC-2026-2280 1.1.0
+requests  2.25.1  PYSEC-2023-74   2.31.0
+requests  2.25.1  PYSEC-2026-1873 2.32.0
+requests  2.25.1  PYSEC-2026-1872 2.32.4
+requests  2.25.1  PYSEC-2026-2275 2.33.0
+pyyaml    5.3.1   PYSEC-2021-142  5.4
+jinja2    2.11.2  PYSEC-2021-66   2.11.3
+jinja2    2.11.2  PYSEC-2026-1473 3.1.3
+jinja2    2.11.2  PYSEC-2026-1471 3.1.6
+jinja2    2.11.2  PYSEC-2026-1474 3.1.4
+jinja2    2.11.2  PYSEC-2026-1475 3.1.5

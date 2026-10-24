@@ -1,0 +1,92 @@
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 3 files tracked by git with 1074 Code rules:
+                                                                                                                        
+  Language      Rules   Files          Origin      Rules                                                                
+ ─────────────────────────────        ───────────────────                                                               
+  <multilang>      47       6          Community    1074                                                                
+  python          243       3                                                                                           
+                                                                                                                        
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+Some files were skipped or only partially analyzed.
+  Scan was limited to files tracked by git.
+
+Ran 290 rules on 3 files: 7 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+                   
+                   
+┌─────────────────┐
+│ 7 Code Findings │
+└─────────────────┘
+               
+    app/main.py
+   ❯❯❱ python.lang.security.audit.subprocess-shell-true.subprocess-shell-true
+          Found 'subprocess' function 'check_output' with 'shell=True'. This is dangerous because this call 
+          will spawn the command using a shell process. Doing so propagates current shell settings and      
+          variables, which makes it much easier for a malicious actor to execute commands. Use 'shell=False'
+          instead.                                                                                          
+          Details: https://sg.run/J92w                                                                      
+                                                                                                            
+           ▶▶┆ Autofix ▶ False
+           50┆ out = subprocess.check_output("ping -c 1 " + host, shell=True)
+   
+   ❯❯❱ python.flask.security.injection.ssrf-requests.ssrf-requests
+          Data from request object is passed to a new server-side request. This could lead to a server-side  
+          request forgery (SSRF). To mitigate, ensure that schemes and hosts are validated against an        
+          allowlist, do not forward the response to the user, and ensure proper authentication and transport-
+          layer security in the proxied request.                                                             
+          Details: https://sg.run/J9LW                                                                       
+                                                                                                             
+           56┆ response = requests.get(url, verify=False)
+   
+   ❯❯❱ python.requests.security.disabled-cert-validation.disabled-cert-validation
+          Certificate verification has been explicitly disabled. This permits insecure connections to insecure
+          servers. Re-enable certification validation.                                                        
+          Details: https://sg.run/AlYp                                                                        
+                                                                                                              
+           ▶▶┆ Autofix ▶ requests.get(url, verify=True)
+           56┆ response = requests.get(url, verify=False)
+   
+   ❯❯❱ python.django.security.audit.avoid-insecure-deserialization.avoid-insecure-deserialization
+          Avoid using insecure deserialization library, backed by `pickle`, `_pickle`, `cpickle`, `dill`,
+          `shelve`, or `yaml`, which are known to lead to remote code execution vulnerabilities.         
+          Details: https://sg.run/9oyr                                                                   
+                                                                                                         
+           63┆ return yaml.load(body, Loader=yaml.Loader)
+   
+   ❯❯❱ python.lang.security.deserialization.avoid-pyyaml-load.avoid-pyyaml-load
+          Detected a possible YAML deserialization vulnerability. `yaml.unsafe_load`, `yaml.Loader`,          
+          `yaml.CLoader`, and `yaml.UnsafeLoader` are all known to be unsafe methods of deserializing YAML. An
+          attacker with control over the YAML input could create special YAML input that allows the attacker  
+          to run arbitrary Python code. This would allow the attacker to steal files, download and install    
+          malware, or otherwise take over the machine. Use `yaml.safe_load` or `yaml.SafeLoader` instead.     
+          Details: https://sg.run/we9Y                                                                        
+                                                                                                              
+           ▶▶┆ Autofix ▶ yaml.load(body, Loader=yaml.Loader)
+           63┆ return yaml.load(body, Loader=yaml.Loader)
+   
+    ❯❱ python.lang.security.deserialization.pickle.avoid-pickle
+          Avoid using `pickle`, which is known to lead to code execution vulnerabilities. When unpickling, the
+          serialized data could be manipulated to run arbitrary code. Instead, consider serializing the       
+          relevant data as JSON or a similar text-based serialization format.                                 
+          Details: https://sg.run/OPwB                                                                        
+                                                                                                              
+           72┆ return {"state": str(pickle.load(f))}
+                
+    app/utils.py
+    ❯❱ python.lang.security.audit.eval-detected.eval-detected
+          Detected the use of eval(). eval() can be dangerous if used to evaluate dynamic content. If this 
+          content can be input from outside the program, this may be a code injection vulnerability. Ensure
+          evaluated content is not definable by external sources.                                          
+          Details: https://sg.run/ZvrD                                                                     
+                                                                                                           
+            2┆ return eval(expression)
+

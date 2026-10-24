@@ -1,0 +1,39 @@
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 3 files tracked by git with 1074 Code rules:
+                                                                                                                        
+  Language      Rules   Files          Origin      Rules                                                                
+ ─────────────────────────────        ───────────────────                                                               
+  <multilang>      47       6          Community    1074                                                                
+  python          243       3                                                                                           
+                                                                                                                        
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+Some files were skipped or only partially analyzed.
+  Scan was limited to files tracked by git.
+
+Ran 290 rules on 3 files: 1 finding.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+                  
+                  
+┌────────────────┐
+│ 1 Code Finding │
+└────────────────┘
+               
+    app/main.py
+   ❯❯❱ python.flask.security.injection.ssrf-requests.ssrf-requests
+          Data from request object is passed to a new server-side request. This could lead to a server-side  
+          request forgery (SSRF). To mitigate, ensure that schemes and hosts are validated against an        
+          allowlist, do not forward the response to the user, and ensure proper authentication and transport-
+          layer security in the proxied request.                                                             
+          Details: https://sg.run/J9LW                                                                       
+                                                                                                             
+           84┆ response = requests.get(url, timeout=5)  # проверка сертификата включена по умолчанию
+

@@ -1,0 +1,172 @@
+{
+ "report_meta": {
+  "scan_target": "files",
+  "scanned": [
+   "requirements.txt"
+  ],
+  "scanned_full_path": [
+   "/Users/slev/vuz/chertoganov/lab2/fastapi-app/requirements.txt"
+  ],
+  "target_languages": [
+   "python"
+  ],
+  "policy_file": null,
+  "policy_file_source": "local",
+  "audit_and_monitor": false,
+  "api_key": false,
+  "account": "",
+  "local_database_path": null,
+  "safety_version": "3.8.1",
+  "timestamp": "2026-10-24 12:58:35",
+  "packages_found": 7,
+  "vulnerabilities_found": 0,
+  "vulnerabilities_ignored": 0,
+  "remediations_recommended": 0,
+  "telemetry": {
+   "safety_options": {
+    "files": {
+     "-r": 1
+    },
+    "output": {
+     "--output": 1
+    }
+   },
+   "safety_version": "3.8.1",
+   "safety_source": "cli",
+   "os_type": "Darwin",
+   "os_release": "27.0.0",
+   "os_description": "macOS-27.0-arm64-arm-64bit-Mach-O",
+   "python_version": "3.15.0",
+   "safety_command": "check"
+  },
+  "git": {
+   "branch": "main",
+   "tag": "",
+   "commit": "",
+   "dirty": "False",
+   "origin": "https://github.com/temp-slev/sec_software.git"
+  },
+  "project": null,
+  "json_version": "1.1",
+  "remediations_attempted": 0,
+  "remediations_completed": 0,
+  "remediation_mode": "NON_INTERACTIVE"
+ },
+ "scanned_packages": {
+  "fastapi": {
+   "name": "fastapi",
+   "version": "0.162.0",
+   "requirements": [
+    {
+     "raw": "fastapi==0.162.0",
+     "extras": [],
+     "marker": null,
+     "name": "fastapi",
+     "specifier": "==0.162.0",
+     "url": null,
+     "found": "/Users/slev/vuz/chertoganov/lab2/fastapi-app/requirements.txt"
+    }
+   ]
+  },
+  "starlette": {
+   "name": "starlette",
+   "version": "1.9.0",
+   "requirements": [
+    {
+     "raw": "starlette==1.9.0",
+     "extras": [],
+     "marker": null,
+     "name": "starlette",
+     "specifier": "==1.9.0",
+     "url": null,
+     "found": "/Users/slev/vuz/chertoganov/lab2/fastapi-app/requirements.txt"
+    }
+   ]
+  },
+  "uvicorn": {
+   "name": "uvicorn",
+   "version": "0.54.0",
+   "requirements": [
+    {
+     "raw": "uvicorn==0.54.0",
+     "extras": [],
+     "marker": null,
+     "name": "uvicorn",
+     "specifier": "==0.54.0",
+     "url": null,
+     "found": "/Users/slev/vuz/chertoganov/lab2/fastapi-app/requirements.txt"
+    }
+   ]
+  },
+  "requests": {
+   "name": "requests",
+   "version": "2.34.2",
+   "requirements": [
+    {
+     "raw": "requests==2.34.2",
+     "extras": [],
+     "marker": null,
+     "name": "requests",
+     "specifier": "==2.34.2",
+     "url": null,
+     "found": "/Users/slev/vuz/chertoganov/lab2/fastapi-app/requirements.txt"
+    }
+   ]
+  },
+  "pyyaml": {
+   "name": "pyyaml",
+   "version": "6.0.3",
+   "requirements": [
+    {
+     "raw": "PyYAML==6.0.3",
+     "extras": [],
+     "marker": null,
+     "name": "PyYAML",
+     "specifier": "==6.0.3",
+     "url": null,
+     "found": "/Users/slev/vuz/chertoganov/lab2/fastapi-app/requirements.txt"
+    }
+   ]
+  },
+  "jinja2": {
+   "name": "jinja2",
+   "version": "3.1.6",
+   "requirements": [
+    {
+     "raw": "Jinja2==3.1.6",
+     "extras": [],
+     "marker": null,
+     "name": "Jinja2",
+     "specifier": "==3.1.6",
+     "url": null,
+     "found": "/Users/slev/vuz/chertoganov/lab2/fastapi-app/requirements.txt"
+    }
+   ]
+  },
+  "psutil": {
+   "name": "psutil",
+   "version": "7.2.2",
+   "requirements": [
+    {
+     "raw": "psutil==7.2.2",
+     "extras": [],
+     "marker": null,
+     "name": "psutil",
+     "specifier": "==7.2.2",
+     "url": null,
+     "found": "/Users/slev/vuz/chertoganov/lab2/fastapi-app/requirements.txt"
+    }
+   ]
+  }
+ },
+ "affected_packages": {},
+ "announcements": [],
+ "vulnerabilities": [],
+ "ignored_vulnerabilities": [],
+ "remediations": {},
+ "remediations_results": {
+  "vulnerabilities_fixed": [],
+  "remediations_applied": {},
+  "remediations_skipped": {}
+ }
+}

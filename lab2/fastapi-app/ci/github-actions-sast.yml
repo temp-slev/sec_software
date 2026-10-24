@@ -1,0 +1,16 @@
+# Скопируйте файл в .github/workflows/ в корне репозитория приложения
+name: SAST
+on: [push, pull_request]
+
+jobs:
+  sast:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install bandit pip-audit semgrep
+      - run: bandit -r app -ll
+      - run: pip-audit -r requirements.txt --strict
+      - run: semgrep scan app --config p/security-audit --error

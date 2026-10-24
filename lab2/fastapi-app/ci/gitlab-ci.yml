@@ -1,0 +1,23 @@
+stages:
+  - security
+
+bandit:
+  stage: security
+  image: python:3.12
+  script:
+    - pip install bandit
+    - bandit -r app -ll
+
+dependency-scan:
+  stage: security
+  image: python:3.12
+  script:
+    - pip install safety pip-audit
+    - safety scan
+    - pip-audit -r requirements.txt --strict
+
+semgrep:
+  stage: security
+  image: semgrep/semgrep
+  script:
+    - semgrep scan app --config p/security-audit --error
