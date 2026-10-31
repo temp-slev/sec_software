@@ -1,0 +1,3 @@
+# Только для локального Docker Desktop с самоподписанным сертификатом kubelet.
+args:
+  - --kubelet-insecure-tls

@@ -1,0 +1,9 @@
+PostgreSQL до перезапуска:
+NAME                        READY   STATUS    RESTARTS   AGE
+postgres-67b68956b4-q8g85   1/1     Running   0          3m12s
+pod "postgres-67b68956b4-q8g85" deleted from practice7 namespace
+deployment "postgres" successfully rolled out
+PostgreSQL после перезапуска:
+NAME                        READY   STATUS    RESTARTS   AGE
+postgres-67b68956b4-6bjkg   1/1     Running   0          1s
+Список товаров до и после удаления пода PostgreSQL совпадает: [{'id': 1, 'name': 'Laptop-70a9f084', 'price': 999.99}]

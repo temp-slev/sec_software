@@ -1,0 +1,2 @@
+GET http://localhost:30080/health: HTTP 200
+{"status":"healthy"}

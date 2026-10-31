@@ -1,0 +1,8 @@
+deployment.apps "fastapi-deployment" deleted from practice7 namespace
+service "fastapi-service" deleted from practice7 namespace
+ingress.networking.k8s.io "fastapi" deleted from practice7 namespace
+deployment.apps/postgres scaled
+NAME            STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+postgres-data   Bound    pvc-e3c2a36d-f5dd-4e96-a32e-16d17034892c   1Gi        RWO            hostpath       <unset>                 12m
+release "traefik" uninstalled
+release "metrics-server" uninstalled

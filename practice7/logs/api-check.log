@@ -1,0 +1,3 @@
+Ingress Host=practice7.local: /health=200, /version=1.0.0 из ConfigMap
+PostgreSQL: создание=201, чтение=200, дубликат=400, неверная цена=422
+Созданный объект: {'id': 1, 'name': 'Laptop-70a9f084', 'price': 999.99}

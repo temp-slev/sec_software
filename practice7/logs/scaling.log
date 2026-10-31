@@ -1,0 +1,14 @@
+deployment.apps/fastapi-deployment scaled
+Waiting for deployment "fastapi-deployment" rollout to finish: 2 of 3 updated replicas are available...
+deployment "fastapi-deployment" successfully rolled out
+NAME                                 READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/fastapi-deployment   3/3     3            3           3m11s
+deployment.apps/postgres             1/1     1            1           3m12s
+
+NAME                                      READY   STATUS    RESTARTS   AGE
+pod/fastapi-deployment-57b5898d48-2l99h   1/1     Running   0          3m11s
+pod/fastapi-deployment-57b5898d48-5vmnq   1/1     Running   0          3m11s
+pod/fastapi-deployment-57b5898d48-wqstx   1/1     Running   0          4s
+pod/postgres-67b68956b4-q8g85             1/1     Running   0          3m12s
+deployment.apps/fastapi-deployment scaled
+deployment "fastapi-deployment" successfully rolled out

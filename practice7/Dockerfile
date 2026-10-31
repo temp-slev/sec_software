@@ -1,0 +1,7 @@
+FROM python:3.12-slim
+WORKDIR /srv
+COPY app/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt && useradd --uid 10001 --create-home appuser
+COPY app/ app/
+USER appuser
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

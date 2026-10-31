@@ -1,0 +1,39 @@
+Sat Oct 31 12:43:54 UTC 2026
+NAME             STATUS   ROLES           AGE     VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE         KERNEL-VERSION            CONTAINER-RUNTIME
+docker-desktop   Ready    control-plane   8m14s   v1.36.1   10.254.254.3   <none>        Docker Desktop   7.0.12-linuxkit (arm64)   docker://29.7.2
+NAME                                 READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/fastapi-deployment   2/2     2            2           3m7s
+deployment.apps/postgres             1/1     1            1           3m8s
+
+NAME                                      READY   STATUS    RESTARTS   AGE
+pod/fastapi-deployment-57b5898d48-2l99h   1/1     Running   0          3m7s
+pod/fastapi-deployment-57b5898d48-5vmnq   1/1     Running   0          3m7s
+pod/postgres-67b68956b4-q8g85             1/1     Running   0          3m8s
+
+NAME                      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
+service/fastapi-service   NodePort    10.99.47.177     <none>        80:30080/TCP   3m7s
+service/postgres          ClusterIP   10.105.127.233   <none>        5432/TCP       3m8s
+
+NAME                                CLASS     HOSTS             ADDRESS     PORTS   AGE
+ingress.networking.k8s.io/fastapi   traefik   practice7.local   localhost   80      3m7s
+
+NAME                         DATA   AGE
+configmap/fastapi-config     4      3m8s
+configmap/kube-root-ca.crt   1      3m8s
+
+NAME                                  STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+persistentvolumeclaim/postgres-data   Bound    pvc-e3c2a36d-f5dd-4e96-a32e-16d17034892c   1Gi        RWO            hostpath       <unset>                 3m8s
+NAME                                  CPU(cores)   MEMORY(bytes)
+fastapi-deployment-57b5898d48-2l99h   3m           31Mi
+fastapi-deployment-57b5898d48-5vmnq   3m           31Mi
+postgres-67b68956b4-q8g85             3m           129Mi
+uid=10001(appuser) gid=10001(appuser) groups=10001(appuser)
+Found 2 pods, using pod/fastapi-deployment-57b5898d48-2l99h
+INFO:     10.1.0.40:38924 - "GET /health HTTP/1.1" 200 OK
+INFO:     10.1.0.40:38924 - "POST /items/ HTTP/1.1" 201 Created
+INFO:     10.1.0.40:38924 - "POST /items/ HTTP/1.1" 400 Bad Request
+INFO:     10.1.0.1:64300 - "GET /health HTTP/1.1" 200 OK
+INFO:     10.1.0.1:57674 - "GET /health HTTP/1.1" 200 OK
+INFO:     10.1.0.1:64550 - "GET /health HTTP/1.1" 200 OK
+INFO:     10.1.0.1:65466 - "GET /health HTTP/1.1" 200 OK
+INFO:     10.1.0.1:64198 - "GET /health HTTP/1.1" 200 OK
