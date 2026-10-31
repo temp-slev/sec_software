@@ -1,0 +1,3 @@
+Источник Prometheus: Default, health=OK
+Дашборд practice12: 8 панелей, включая RPS, ошибки, p50/p95/p99 и custom counter
+PromQL всех панелей practice12 выполняется и возвращает данные

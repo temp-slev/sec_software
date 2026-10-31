@@ -1,0 +1,13 @@
+my_custom_counter_total 2498.0
+my_custom_counter_created 1.7934504502599604e+09
+http_requests_total{handler="/",method="GET",status="2xx"} 2498.0
+http_requests_total{handler="/cpu",method="GET",status="2xx"} 3.0
+http_request_duration_seconds_bucket{handler="/",le="0.1",method="GET"} 2498.0
+http_request_duration_seconds_bucket{handler="/",le="0.5",method="GET"} 2498.0
+http_request_duration_seconds_bucket{handler="/",le="1.0",method="GET"} 2498.0
+http_request_duration_seconds_bucket{handler="/",le="+Inf",method="GET"} 2498.0
+http_request_duration_seconds_bucket{handler="/cpu",le="0.1",method="GET"} 0.0
+http_request_duration_seconds_bucket{handler="/cpu",le="0.5",method="GET"} 2.0
+http_request_duration_seconds_bucket{handler="/cpu",le="1.0",method="GET"} 3.0
+http_request_duration_seconds_bucket{handler="/cpu",le="+Inf",method="GET"} 3.0
+Probes /health и scrape /metrics исключены из метрик HTTP-запросов

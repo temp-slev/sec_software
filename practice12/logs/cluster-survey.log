@@ -1,0 +1,15 @@
+NAME                          READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES                  SELECTOR
+deployment.apps/fastapi-app   2/2     2            2           10m   fastapi      practice12-fastapi:v1   app=practice12-fastapi
+
+NAME                               READY   STATUS    RESTARTS   AGE     IP          NODE             NOMINATED NODE   READINESS GATES
+pod/fastapi-app-66667fb5b8-5rxtt   1/1     Running   0          7m19s   10.1.0.53   docker-desktop   <none>           <none>
+pod/fastapi-app-66667fb5b8-q99xj   1/1     Running   0          10m     10.1.0.45   docker-desktop   <none>           <none>
+
+NAME                  TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE   SELECTOR
+service/fastapi-app   ClusterIP   10.100.236.124   <none>        8000/TCP   10m   app=practice12-fastapi
+
+NAME                                                   AGE
+servicemonitor.monitoring.coreos.com/fastapi-monitor   10m
+NAME                           CPU(cores)   MEMORY(bytes)
+fastapi-app-66667fb5b8-5rxtt   2m           39Mi
+fastapi-app-66667fb5b8-q99xj   2m           34Mi

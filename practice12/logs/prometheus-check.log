@@ -1,0 +1,7 @@
+ServiceMonitor: две цели practice12 в состоянии UP
+fastapi-app-66667fb5b8-5rxtt http://10.1.0.53:8000/metrics up
+fastapi-app-66667fb5b8-q99xj http://10.1.0.45:8000/metrics up
+my_custom_counter_total fastapi-app-66667fb5b8-q99xj 46
+my_custom_counter_total fastapi-app-66667fb5b8-5rxtt 30
+RPS (http_requests_total): 0.3555476544965668
+Метрики обеих реплик получены и доступны в Prometheus
