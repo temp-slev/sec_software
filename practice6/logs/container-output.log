@@ -1,0 +1,42 @@
+app-2  | INFO:     172.18.0.6:59200 - "GET / HTTP/1.0" 200 OK
+app-2  | 2026-10-31 12:16:57,434 INFO GET / status=200
+app-2  | INFO:     172.18.0.6:59206 - "GET / HTTP/1.0" 200 OK
+app-2  | 2026-10-31 12:16:57,552 INFO GET / status=200
+app-1  | INFO:     172.18.0.6:46216 - "GET / HTTP/1.0" 200 OK
+app-1  | 2026-10-31 12:16:57,607 INFO GET / status=200
+app-1  | INFO:     172.18.0.6:46220 - "GET / HTTP/1.0" 200 OK
+app-1  | 2026-10-31 12:16:57,643 INFO GET /health status=200
+app-1  | INFO:     127.0.0.1:55678 - "GET /health HTTP/1.1" 200 OK
+db-1   |
+db-1   | PostgreSQL Database directory appears to contain a database; Skipping initialization
+db-1   |
+db-1   | 2026-10-31 12:16:46.556 UTC [1] LOG:  starting PostgreSQL 15.19 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+db-1   | 2026-10-31 12:16:46.556 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-1   | 2026-10-31 12:16:46.556 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-1   | 2026-10-31 12:16:46.557 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+app-1  | 2026-10-31 12:16:57,717 INFO GET / status=200
+app-1  | INFO:     172.18.0.6:46222 - "GET / HTTP/1.0" 200 OK
+app-1  | 2026-10-31 12:16:57,830 INFO GET / status=200
+app-1  | INFO:     172.18.0.6:46228 - "GET / HTTP/1.0" 200 OK
+app-1  | 2026-10-31 12:16:57,953 INFO GET / status=200
+app-1  | INFO:     172.18.0.6:46238 - "GET / HTTP/1.0" 200 OK
+app-1  | 2026-10-31 12:16:58,065 INFO GET / status=200
+app-1  | INFO:     172.18.0.6:46240 - "GET / HTTP/1.0" 200 OK
+app-1  | INFO:     172.18.0.6:46254 - "GET / HTTP/1.0" 200 OK
+app-1  | 2026-10-31 12:16:58,223 INFO GET / status=200
+db-1   | 2026-10-31 12:16:46.559 UTC [30] LOG:  database system was shut down at 2026-10-31 12:16:46 UTC
+db-1   | 2026-10-31 12:16:46.561 UTC [1] LOG:  database system is ready to accept connections
+db-1   | 2026-10-31 12:16:56.470 UTC [62] ERROR:  duplicate key value violates unique constraint "items_name_key"
+db-1   | 2026-10-31 12:16:56.470 UTC [62] DETAIL:  Key (name)=(Laptop-219d6f86) already exists.
+db-1   | 2026-10-31 12:16:56.470 UTC [62] STATEMENT:  INSERT INTO items (name, description, price) VALUES ('Laptop-219d6f86', 'Gaming laptop', 999.99)
+app-2  | INFO:     172.18.0.6:59214 - "GET / HTTP/1.0" 200 OK
+app-2  | 2026-10-31 12:16:57,660 INFO GET / status=200
+app-2  | INFO:     172.18.0.6:59222 - "GET / HTTP/1.0" 200 OK
+app-2  | 2026-10-31 12:16:57,774 INFO GET / status=200
+app-2  | INFO:     172.18.0.6:59230 - "GET / HTTP/1.0" 200 OK
+app-2  | 2026-10-31 12:16:57,894 INFO GET / status=200
+app-2  | INFO:     172.18.0.6:59238 - "GET / HTTP/1.0" 200 OK
+app-2  | 2026-10-31 12:16:58,011 INFO GET / status=200
+app-2  | INFO:     172.18.0.6:59244 - "GET / HTTP/1.0" 200 OK
+app-2  | 2026-10-31 12:16:58,125 INFO GET / status=200
+app-2  | INFO:     172.18.0.6:59260 - "GET / HTTP/1.0" 200 OK

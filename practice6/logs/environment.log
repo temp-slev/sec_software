@@ -1,0 +1,14 @@
+Sat Oct 31 12:16:45 UTC 2026
+Docker 29.7.2
+Docker Compose version v5.4.0
+NAME                IMAGE                      COMMAND                  SERVICE   CREATED          STATUS                    PORTS
+practice6-app-1     practice6-fastapi:latest   "uvicorn app.main:ap…"   app       17 seconds ago   Up 13 seconds (healthy)   8000/tcp
+practice6-db-1      postgres:15-alpine         "docker-entrypoint.s…"   db        17 seconds ago   Up 17 seconds (healthy)   5432/tcp
+practice6-nginx-1   nginx:1.28-alpine          "/docker-entrypoint.…"   nginx     17 seconds ago   Up 8 seconds              127.0.0.1:80->80/tcp
+practice6-redis-1   redis:7-alpine             "docker-entrypoint.s…"   redis     17 seconds ago   Up 17 seconds (healthy)   6379/tcp
+uid=10001(appuser) gid=10001(appuser) groups=10001(appuser)
+total 20
+drwxr-xr-x 2 root root 4096 Oct 31 12:13 .
+drwxr-xr-x 1 root root 4096 Oct 31 12:16 ..
+-rw-r--r-- 1 root root 5179 Oct 31 12:14 main.py
+-rw-r--r-- 1 root root   71 Oct 31 12:13 requirements.txt

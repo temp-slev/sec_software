@@ -1,0 +1,11 @@
+Nginx: GET / -> {'message': 'Hello from FastAPI in Docker!'}
+GET /health -> {'status': 'healthy'}
+POST /items/ -> {'message': 'Item Laptop-219d6f86 created'}
+Первое чтение: X-Cache=MISS; товар присутствует в PostgreSQL
+Повторное чтение: X-Cache=HIT
+Дубликат -> {'detail': 'Item already exists'}
+Отрицательная цена -> HTTP 422
+Добавление товара сбрасывает кэш: X-Cache=MISS, новый товар присутствует
+Nginx направил запросы на экземпляры: ['4414eea427f7', 'fd720a78bf0f']
+API и кэш: все проверки пройдены
+http://localhost:80 -> HTTP 200

@@ -1,0 +1,82 @@
+Контейнеры до пересоздания:
+NAME                IMAGE                      COMMAND                  SERVICE   CREATED          STATUS                    PORTS
+practice6-app-1     practice6-fastapi:latest   "uvicorn app.main:ap…"   app       32 seconds ago   Up 27 seconds (healthy)   8000/tcp
+practice6-app-2     practice6-fastapi:latest   "uvicorn app.main:ap…"   app       14 seconds ago   Up 10 seconds (healthy)   8000/tcp
+practice6-db-1      postgres:15-alpine         "docker-entrypoint.s…"   db        14 seconds ago   Up 13 seconds (healthy)   5432/tcp
+practice6-nginx-1   nginx:1.28-alpine          "/docker-entrypoint.…"   nginx     14 seconds ago   Up 4 seconds              127.0.0.1:80->80/tcp
+practice6-redis-1   redis:7-alpine             "docker-entrypoint.s…"   redis     14 seconds ago   Up 13 seconds (healthy)   6379/tcp
+Compose down: контейнеры удалены; именованные тома сохранены
+ Container practice6-nginx-1 Stopping
+ Container practice6-nginx-1 Stopped
+ Container practice6-nginx-1 Removing
+ Container practice6-nginx-1 Removed
+ Container practice6-app-1 Stopping
+ Container practice6-app-2 Stopping
+ Container practice6-app-1 Stopped
+ Container practice6-app-1 Removing
+ Container practice6-app-1 Removed
+ Container practice6-app-2 Stopped
+ Container practice6-app-2 Removing
+ Container practice6-app-2 Removed
+ Container practice6-db-1 Stopping
+ Container practice6-redis-1 Stopping
+ Container practice6-db-1 Stopped
+ Container practice6-db-1 Removing
+ Container practice6-db-1 Removed
+ Container practice6-redis-1 Stopped
+ Container practice6-redis-1 Removing
+ Container practice6-redis-1 Removed
+ Network practice6_default Removing
+ Network practice6_default Removed
+ Network practice6_default Creating
+ Network practice6_default Creating
+ Network practice6_default Created
+ Network practice6_default Created
+ Container practice6-redis-1 Creating
+ Container practice6-db-1 Creating
+ Container practice6-redis-1 Created
+ Container practice6-db-1 Created
+ Container practice6-app-1 Creating
+ Container practice6-app-2 Creating
+ Container practice6-app-1 Created
+ Container practice6-app-2 Created
+ Container practice6-nginx-1 Creating
+ Container practice6-nginx-1 Created
+ Container practice6-redis-1 Starting
+ Container practice6-db-1 Starting
+ Container practice6-redis-1 Started
+ Container practice6-db-1 Started
+ Container practice6-redis-1 Waiting
+ Container practice6-db-1 Waiting
+ Container practice6-redis-1 Healthy
+ Container practice6-db-1 Healthy
+ Container practice6-app-2 Starting
+ Container practice6-app-2 Started
+ Container practice6-app-1 Starting
+ Container practice6-app-1 Started
+ Container practice6-app-2 Waiting
+ Container practice6-app-1 Waiting
+ Container practice6-app-2 Healthy
+ Container practice6-app-1 Healthy
+ Container practice6-nginx-1 Starting
+ Container practice6-nginx-1 Started
+ Container practice6-db-1 Waiting
+ Container practice6-redis-1 Waiting
+ Container practice6-app-2 Waiting
+ Container practice6-app-1 Waiting
+ Container practice6-nginx-1 Waiting
+ Container practice6-nginx-1 Healthy
+ Container practice6-redis-1 Healthy
+ Container practice6-db-1 Healthy
+ Container practice6-app-2 Healthy
+ Container practice6-app-1 Healthy
+Контейнеры после пересоздания:
+NAME                IMAGE                      COMMAND                  SERVICE   CREATED          STATUS                   PORTS
+practice6-app-1     practice6-fastapi:latest   "uvicorn app.main:ap…"   app       9 seconds ago    Up 6 seconds (healthy)   8000/tcp
+practice6-app-2     practice6-fastapi:latest   "uvicorn app.main:ap…"   app       9 seconds ago    Up 6 seconds (healthy)   8000/tcp
+practice6-db-1      postgres:15-alpine         "docker-entrypoint.s…"   db        10 seconds ago   Up 9 seconds (healthy)   5432/tcp
+practice6-nginx-1   nginx:1.28-alpine          "/docker-entrypoint.…"   nginx     9 seconds ago    Up Less than a second    127.0.0.1:80->80/tcp
+practice6-redis-1   redis:7-alpine             "docker-entrypoint.s…"   redis     10 seconds ago   Up 9 seconds (healthy)   6379/tcp
+PostgreSQL: список товаров полностью сохранился после пересоздания контейнеров
+Файлы логов прежних контейнеров сохранились в Docker volume: 2
+Содержимое прежних логов доступно: Item created
