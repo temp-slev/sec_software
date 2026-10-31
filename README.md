@@ -10,6 +10,7 @@
 | `practice4/` | Практика 4. Kafka, HAProxy, RabbitMQ |
 | `practice5/` | Практика 5. Автоматический QA: pytest, black, isort, flake8, pre-commit |
 | `practice6/` | Практика 6. Docker: FastAPI, PostgreSQL, Redis, Nginx и постоянные тома |
+| `practice9/` | Практика 9. MinIO/S3: загрузка, скачивание и обработка данных |
 | `lab1/` | Лаба 1. Архитектура облачных, распределённых, микросервисных и гибридных ИС |
 | `lab2/` | Лаба 2. SAST (Bandit, Safety, Semgrep) |
 | `lab5/` | Лаба 5 (в тексте задания — №4). Логирование и обследование: Loki, Prometheus, Grafana в Kubernetes |

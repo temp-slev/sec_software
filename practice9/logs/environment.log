@@ -1,0 +1,23 @@
+Sat Oct 31 12:28:55 UTC 2026
+Docker 29.7.2
+Docker Compose version v5.4.0
+NAME                     IMAGE                      COMMAND                  SERVICE      CREATED          STATUS                      PORTS
+practice9-app-1          practice9-fastapi:latest   "uvicorn app.main:ap…"   app          27 seconds ago   Up 23 seconds (healthy)     127.0.0.1:8009->8000/tcp
+practice9-minio-1        practice9-minio:local      "service server /dat…"   minio        27 seconds ago   Up 27 seconds (healthy)     127.0.0.1:9000-9001->9000-9001/tcp
+practice9-minio-init-1   practice9-mc:local         "/bin/sh -ec 'servic…"   minio-init   27 seconds ago   Exited (0) 23 seconds ago
+service version DEVELOPMENT.GOGET (commit-id=DEVELOPMENT.GOGET)
+Runtime: go1.24.3 linux/arm64
+License: GNU AGPLv3 - https://www.gnu.org/licenses/agpl-3.0.html
+Copyright: 2015-0000 MinIO, Inc.
+service version DEVELOPMENT.GOGET (commit-id=DEVELOPMENT.GOGET)
+Runtime: go1.24.3 linux/arm64
+Copyright (c) 2015-0000 MinIO, Inc.
+License GNU AGPLv3 <https://www.gnu.org/licenses/agpl-3.0.html>
+minio-init-1  | Added `local` successfully.
+minio-init-1  | Bucket created successfully `local/data-lake-bucket`.
+minio-init-1  | `/samples/sample.json` -> `local/data-lake-bucket/sample.json`
+minio-init-1  | ┌───────┬─────────────┬──────────┬────────────┐
+minio-init-1  | │ Total │ Transferred │ Duration │ Speed      │
+minio-init-1  | │ 46 B  │ 46 B        │ 00m00s   │ 9.89 KiB/s │
+minio-init-1  | └───────┴─────────────┴──────────┴────────────┘
+minio-init-1  | Bucket and file initialized successfully!

@@ -1,0 +1,69 @@
+name: practice9
+services:
+  minio:
+    image: practice9-minio:local
+    build:
+      context: storage
+      args:
+        COMPONENT: minio
+        VERSION: RELEASE.2025-04-22T22-12-26Z
+        COMMIT: 0d7408fc9969caf07de6a8c3a84f9fbb10a6739e
+    environment:
+      MINIO_ROOT_USER: ${S3_ACCESS_KEY:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${S3_SECRET_KEY:-minioadmin123}
+    command: server /data --console-address ':9001'
+    ports:
+      - "127.0.0.1:9000:9000"
+      - "127.0.0.1:9001:9001"
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:9000/minio/health/ready')"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  minio-init:
+    image: practice9-mc:local
+    build:
+      context: storage
+      args:
+        COMPONENT: mc
+        VERSION: RELEASE.2025-04-16T18-13-26Z
+        COMMIT: b00526b153a31b36767991a4f5ce2cced435ee8e
+    depends_on:
+      minio:
+        condition: service_healthy
+    environment:
+      S3_ACCESS_KEY: ${S3_ACCESS_KEY:-minioadmin}
+      S3_SECRET_KEY: ${S3_SECRET_KEY:-minioadmin123}
+      S3_BUCKET: data-lake-bucket
+    entrypoint: ["/bin/sh", "-ec"]
+    command:
+      - |
+        service alias set local http://minio:9000 "$$S3_ACCESS_KEY" "$$S3_SECRET_KEY"
+        service mb --ignore-existing "local/$$S3_BUCKET"
+        service cp /samples/sample.json "local/$$S3_BUCKET/sample.json"
+        echo 'Bucket and file initialized successfully!'
+    volumes:
+      - ./sample_data:/samples:ro
+  app:
+    image: practice9-fastapi:latest
+    build: .
+    ports:
+      - "127.0.0.1:${APP_PORT:-8009}:8000"
+    environment:
+      S3_ENDPOINT: http://minio:9000
+      S3_ACCESS_KEY: ${S3_ACCESS_KEY:-minioadmin}
+      S3_SECRET_KEY: ${S3_SECRET_KEY:-minioadmin123}
+      S3_BUCKET: data-lake-bucket
+    depends_on:
+      minio-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+volumes:
+  minio_data:

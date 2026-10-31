@@ -1,0 +1,40 @@
+app-1  | INFO:     Started server process [1]
+app-1  | INFO:     Waiting for application startup.
+app-1  | 2026-10-31 12:28:32,680 INFO S3 bucket ready: data-lake-bucket
+app-1  | INFO:     Application startup complete.
+app-1  | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+app-1  | INFO:     127.0.0.1:34686 - "GET /health HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:45340 - "GET /health HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:45344 - "GET /health HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:51716 - "GET /health HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:51724 - "GET /health HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:51736 - "GET /buckets/ HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:51742 - "GET /objects/sample.json HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:51746 - "POST /upload/?key=new_data.json&content=%7B%22user%22%3A%22alice%22%2C%22score%22%3A100%7D HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:51756 - "GET /objects/new_data.json HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:51772 - "POST /upload/?key=nested%2Fnote.TXT&content=Hello%2C+S3%21 HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:51782 - "GET /objects/nested/note.TXT HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:51786 - "GET /objects/?prefix=nested/&file_type=txt HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:51798 - "GET /objects/?file_type=.json HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:51814 - "POST /upload/?key=broken.json&content=not+a+JSON+document HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:51820 - "GET /aggregate/ HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:51834 - "GET /download/nested/note.TXT HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:51838 - "GET /objects/no-such-key HTTP/1.1" 404 Not Found
+app-1  | INFO:     127.0.0.1:51844 - "GET /download/no-such-key HTTP/1.1" 404 Not Found
+app-1  | INFO:     127.0.0.1:51860 - "GET /objects/?file_type=.. HTTP/1.1" 422 Unprocessable Entity
+app-1  | 2026-10-31 12:28:56,168 INFO S3 multipart operation=CreateMultipartUpload
+app-1  | 2026-10-31 12:28:56,171 INFO S3 multipart operation=UploadPart
+app-1  | 2026-10-31 12:28:56,171 INFO S3 multipart operation=UploadPart
+app-1  | 2026-10-31 12:28:56,172 INFO S3 multipart operation=UploadPart
+app-1  | 2026-10-31 12:28:56,193 INFO S3 multipart operation=CompleteMultipartUpload
+app-1  | 2026-10-31 12:28:56,197 INFO File uploaded key=large.bin bytes=12582912 etag="19019d16dd0f439825c39a2c5b9178fd-3"
+app-1  | INFO:     127.0.0.1:51862 - "POST /upload-file/?key=large.bin HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:51874 - "GET /download/large.bin HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:51888 - "GET /objects/large.bin HTTP/1.1" 415 Unsupported Media Type
+app-1  | INFO:     127.0.0.1:51894 - "POST /upload/?key=%D0%BE%D1%82%D1%87%D1%91%D1%82.txt&content=%D0%A2%D0%B5%D0%BA%D1%81%D1%82+UTF-8 HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:51902 - "GET /download/%D0%BE%D1%82%D1%87%D1%91%D1%82.txt HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:51906 - "GET /health HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:51908 - "GET /objects/?prefix=pagination/&file_type=txt HTTP/1.1" 200 OK
+app-1  | INFO:     172.18.0.1:60878 - "GET /openapi.json HTTP/1.1" 200 OK
+app-1  | INFO:     172.18.0.1:60894 - "GET /docs HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:51916 - "GET /download/large.bin HTTP/1.1" 200 OK

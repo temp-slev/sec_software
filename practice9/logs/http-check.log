@@ -1,0 +1,2 @@
+FastAPI :8009/openapi.json и :8009/docs — HTTP 200, схема и Swagger доступны
+MinIO Console :9001 — HTTP 200, HTML-интерфейс доступен
