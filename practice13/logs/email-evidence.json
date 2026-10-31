@@ -1,0 +1,16 @@
+{
+  "ID": "4JWVESooQ4RdkKsMEWbhQW",
+  "Subject": "[FIRING:1] FastAPI 5xx over 5 percent Practice 13 (13 warning)",
+  "From": {
+    "Name": "Practice 13 Grafana",
+    "Address": "grafana@example.test"
+  },
+  "To": [
+    {
+      "Name": "",
+      "Address": "alerts@example.test"
+    }
+  ],
+  "Created": "2026-10-31T12:47:10.013Z",
+  "Text": "*1 firing* alert instance\n\n------------------------------------------\n📁 Practice 13 › FastAPI 5xx over 5 percent\n------------------------------------------\n\n🔥 1 firing instances\n--------------------\n\nFiring ( http://localhost:3000/alerting/grafana/fastapi5xx13/view?orgId=1 )\n\n*FastAPI 5xx over 5 percent*\n\nView alert ( http://localhost:3000/alerting/grafana/fastapi5xx13/view?orgId=1 )\n\n*Summary*\nДоля ответов 5xx за последние 5 минут превысила 5%\n\n*Values*\n\nA=51.10449163179014 B=51.10449163179014 C=1\n\n*Labels*\n\n*alertname* FastAPI 5xx over 5 percent *grafana_folder* Practice 13 *practice* 13 *severity* warning\n\nSilence ( http://localhost:3000/alerting/silence/new?alertmanager=grafana&matcher=__alert_rule_uid__%3Dfastapi5xx13&matcher=practice%3D13&matcher=severity%3Dwarning&orgId=1 )\n\nObserved *10s* before this notification was delivered, at *2026-10-31 12:47:00 +0000 UTC*\n\n© 2026 Grafana Labs. Sent by Grafana v13.2.4 ( http://localhost:3000/ )."
+}

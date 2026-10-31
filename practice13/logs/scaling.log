@@ -1,0 +1,14 @@
+Исходный Deployment:
+NAME          READY   UP-TO-DATE   AVAILABLE   AGE
+fastapi-app   1/1     1            1           3m25s
+deployment.apps/fastapi-app scaled
+Waiting for deployment "fastapi-app" rollout to finish: 1 of 2 updated replicas are available...
+deployment "fastapi-app" successfully rolled out
+NAME                          READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/fastapi-app   2/2     2            2           3m27s
+deployment.apps/mailpit       1/1     1            1           2m52s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fastapi-app-647b9b86-p5d5z   1/1     Running   0          2s
+pod/fastapi-app-647b9b86-zrdns   1/1     Running   0          3m27s
+pod/mailpit-bf78cc588-7ld8b      1/1     Running   0          2m52s

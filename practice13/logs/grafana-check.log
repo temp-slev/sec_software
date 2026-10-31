@@ -1,0 +1,10 @@
+Источник Prometheus: Default, health=OK
+Дашборд practice13: 8 панелей, включая RPS, ошибки, p50/p95/p99 и custom counter
+PromQL всех панелей practice13 выполняется и возвращает данные
+Правило Grafana: доля 5xx > 5% за 5 минут, for=30s, включено
+SMTP-письмо получено Mailpit: [FIRING:1] FastAPI 5xx over 5 percent Practice 13 (13 warning)
+Получатель: alerts@example.test ID: 4JWVESooQ4RdkKsMEWbhQW
+Тело письма содержит описание сработавшего правила
+my_custom_counter_total по двум подам: [('fastapi-app-647b9b86-zrdns', '1264'), ('fastapi-app-647b9b86-p5d5z', '30')]
+Измеренная доля 5xx за 5 минут: 50.03054367745877%
+Все проверки Grafana и email-доставки пройдены

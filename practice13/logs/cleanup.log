@@ -1,0 +1,2 @@
+deployment.apps/fastapi-app scaled
+deployment.apps/mailpit scaled

@@ -1,0 +1,19 @@
+NAME                          READY   UP-TO-DATE   AVAILABLE   AGE     CONTAINERS   IMAGES                    SELECTOR
+deployment.apps/fastapi-app   2/2     2            2           10m     fastapi      practice13-fastapi:v1     app=practice13-fastapi
+deployment.apps/mailpit       1/1     1            1           9m55s   mailpit      axllent/mailpit:v1.27.8   app=mailpit
+
+NAME                             READY   STATUS    RESTARTS   AGE     IP          NODE             NOMINATED NODE   READINESS GATES
+pod/fastapi-app-647b9b86-p5d5z   1/1     Running   0          7m5s    10.1.0.54   docker-desktop   <none>           <none>
+pod/fastapi-app-647b9b86-zrdns   1/1     Running   0          10m     10.1.0.46   docker-desktop   <none>           <none>
+pod/mailpit-bf78cc588-7ld8b      1/1     Running   0          9m55s   10.1.0.47   docker-desktop   <none>           <none>
+
+NAME                  TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)             AGE     SELECTOR
+service/fastapi-app   ClusterIP   10.105.251.28   <none>        8000/TCP            10m     app=practice13-fastapi
+service/mailpit       ClusterIP   10.104.86.154   <none>        1025/TCP,8025/TCP   9m55s   app=mailpit
+
+NAME                                                   AGE
+servicemonitor.monitoring.coreos.com/fastapi-monitor   10m
+NAME                         CPU(cores)   MEMORY(bytes)
+fastapi-app-647b9b86-p5d5z   2m           33Mi
+fastapi-app-647b9b86-zrdns   2m           33Mi
+mailpit-bf78cc588-7ld8b      1m           13Mi

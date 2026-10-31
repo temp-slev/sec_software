@@ -1,0 +1,70 @@
+{
+  "status": "success",
+  "data": {
+    "groups": [
+      {
+        "name": "fastapi-practice13",
+        "file": "Practice 13",
+        "folderUid": "cg2w0tod17itcf",
+        "rules": [
+          {
+            "state": "firing",
+            "name": "FastAPI 5xx over 5 percent",
+            "query": "100 * sum(rate(http_requests_total{namespace=\"practice13\",status=~\"5..\"}[5m])) / clamp_min(sum(rate(http_requests_total{namespace=\"practice13\"}[5m])), 0.000001)",
+            "queriedDatasourceUIDs": [
+              "prometheus"
+            ],
+            "duration": 30,
+            "annotations": {
+              "summary": "Доля ответов 5xx за последние 5 минут превысила 5%"
+            },
+            "activeAt": "2026-10-31T12:47:00Z",
+            "alerts": [
+              {
+                "labels": {
+                  "alertname": "FastAPI 5xx over 5 percent",
+                  "grafana_folder": "Practice 13",
+                  "practice": "13",
+                  "severity": "warning"
+                },
+                "annotations": {
+                  "summary": "Доля ответов 5xx за последние 5 минут превысила 5%"
+                },
+                "state": "Alerting",
+                "activeAt": "2026-10-31T12:47:00Z",
+                "value": "1e+00"
+              }
+            ],
+            "totals": {
+              "alerting": 1
+            },
+            "totalsFiltered": {
+              "alerting": 1
+            },
+            "uid": "fastapi5xx13",
+            "folderUid": "cg2w0tod17itcf",
+            "labels": {
+              "practice": "13",
+              "severity": "warning"
+            },
+            "health": "ok",
+            "type": "alerting",
+            "lastEvaluation": "2026-10-31T12:51:00Z",
+            "evaluationTime": 0.001533042,
+            "isPaused": false,
+            "provenance": "file"
+          }
+        ],
+        "totals": {
+          "firing": 1
+        },
+        "interval": 30,
+        "lastEvaluation": "2026-10-31T12:51:00Z",
+        "evaluationTime": 0.001533042
+      }
+    ],
+    "totals": {
+      "firing": 1
+    }
+  }
+}

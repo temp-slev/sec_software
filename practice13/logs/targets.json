@@ -1,0 +1,28 @@
+[
+  {
+    "labels": {
+      "container": "fastapi",
+      "endpoint": "metrics",
+      "instance": "10.1.0.46:8000",
+      "job": "fastapi-app",
+      "namespace": "practice13",
+      "pod": "fastapi-app-647b9b86-zrdns",
+      "service": "fastapi-app"
+    },
+    "health": "up",
+    "scrapeUrl": "http://10.1.0.46:8000/metrics"
+  },
+  {
+    "labels": {
+      "container": "fastapi",
+      "endpoint": "metrics",
+      "instance": "10.1.0.54:8000",
+      "job": "fastapi-app",
+      "namespace": "practice13",
+      "pod": "fastapi-app-647b9b86-p5d5z",
+      "service": "fastapi-app"
+    },
+    "health": "up",
+    "scrapeUrl": "http://10.1.0.54:8000/metrics"
+  }
+]
