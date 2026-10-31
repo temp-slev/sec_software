@@ -46,7 +46,7 @@ Swagger: http://127.0.0.1:8000/docs. Тесты: `pytest -q` (7 тестов п�
 
 ## Проверка в Postman
 
-Импортируйте `user_service/postman_collection.json`. Порядок: Create user → List →
+Коллекция Postman: `user_service/postman_collection.json`. Порядок запросов: Create user → List →
 Get → Signup → Login (токен сохраняется в переменную `{{token}}` автоматически) →
 Update → Delete. Ожидаемые результаты (так же они получены в `run-log.txt`):
 `201`, `200`, `200`, `201`, `200`, `200`, `200`. Повторный `DELETE` того же id даёт `404`.

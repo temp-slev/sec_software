@@ -25,11 +25,6 @@ alertmanager:
         webhook_configs:
           - url: http://alert-webhook.monitoring.svc:8080/
             send_resolved: true
-      # Telegram (нужны токен бота и chat_id):
-      # - name: telegram
-      #   telegram_configs:
-      #     - bot_token: "<TOKEN>"
-      #       chat_id: 123456789
   alertmanagerSpec:
     resources:
       requests:

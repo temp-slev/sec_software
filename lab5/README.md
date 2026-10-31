@@ -92,8 +92,7 @@ Grafana → Dashboards → Import → загрузить `grafana/incident-dashb
 - **Этап 6.** Нагрузка на `/cpu` и `/crash`, расследование — `INVESTIGATION.md`.
 - **Задание 1.** Правило Loki: `sum(count_over_time({app="fastapi-app"} |= "ERROR" [1m])) > 5`.
   Оповещение дошло до Alertmanager и до приёмника (`logs/alert-webhook.log`). Приёмник — webhook в
-  кластере; для Telegram в `k8s/prometheus-values.yaml` оставлен закомментированный пример
-  (нужны токен бота и `chat_id`), для email — `email_configs` с SMTP-сервером.
+  кластере. Факт доставки оповещения подтверждён логом приёмника.
 - **Задание 2.** Панель «Запросы и ошибки» (Prometheus: запросы/с и 5xx/с) стоит над панелью
   «Последние логи ошибок» (Loki) на одном дашборде с общим временным окном: выделение интервала на
   графике синхронно меняет окно логов.

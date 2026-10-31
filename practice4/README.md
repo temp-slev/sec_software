@@ -35,8 +35,7 @@ cd producer_service && uvicorn main:app --port 8000      # терминал 2
 
 Kafka UI: http://localhost:8080, RabbitMQ: http://localhost:15672 (guest / guest).
 В протоколах сервисы запускались на портах 8100 и 8101, потому что порт 8000 на
-машине был занят; в коллекции Postman указаны эти порты, при запуске на 8000/8001
-замените их.
+машине был занят; в коллекции Postman указаны порты 8100 и 8101.
 
 Через HAProxy: `KAFKA_BOOTSTRAP_SERVERS=localhost:9093 uvicorn main:app --port 8000`.
 

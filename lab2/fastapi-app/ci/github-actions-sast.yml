@@ -1,4 +1,4 @@
-# Скопируйте файл в .github/workflows/ в корне репозитория приложения
+# Конфигурация GitHub Actions для отдельного репозитория приложения (.github/workflows/)
 name: SAST
 on: [push, pull_request]
 
